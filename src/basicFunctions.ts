@@ -8,5 +8,5 @@
  * ```
  */
 export function add(firstNumber: number, secondNumber: number) {
-  return firstNumber + secondNumber * 2;
+  return firstNumber + secondNumber ;
 }
