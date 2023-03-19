@@ -62,6 +62,6 @@ describe('Clase User', () => {
 
   it("Setter del histórico de rutas resulta [[18-03-23],[1,2,3]]", () => {
     user1.setHistoric(["18-03-23",[1,2,3]])
-    expect(user1.historic).to.be.eql([["18-03-23"],[1,2,3]]);
+    expect(user1.historic).to.be.eql([["18-03-23",[1,2,3]]]);
   });
 });

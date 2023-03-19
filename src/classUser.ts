@@ -19,12 +19,12 @@ type historic = [string, number[]];
 export class User {
   private id_: number;
   private activities_: Actividad[] = [];
-  private friends_: number[];
-  private groups_: number[];
+  private friends_: number[] = [];
+  private groups_: number[] = [];
   private stats_: stats;
-  private favouriteRoutes_: number[];
-  private challenges_: number[];
-  private historic_: historic[];
+  private favouriteRoutes_: number[] = [];
+  private challenges_: number[] = [];
+  private historic_: historic[] = [];
   
   private static idLastUser_: number;
   
