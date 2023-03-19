@@ -13,7 +13,7 @@
 
 import 'mocha';
 import {expect} from 'chai';
-import {User} from '../src/classUser';
+import {User} from '../../src/user/classUser';
 
 
 describe('Clase User', () => {
@@ -46,7 +46,7 @@ describe('Clase User', () => {
 
   it("Setter de las estadísticas resulta [[10, 2],[40,8],[150, 50]]", () => {
     user1.setStats([[10, 2],[40,8],[150, 50]]);
-    expect(user1.stats).to.be.eql([[10, 2],[40,8],[150, 50]]);
+    expect(user1.stats).to.be.eql([[[10, 2],[40,8],[150, 50]]]);
   });
 
   it("Setter de la ruta favorita añadiendo la 1, resulta [1]", () => {

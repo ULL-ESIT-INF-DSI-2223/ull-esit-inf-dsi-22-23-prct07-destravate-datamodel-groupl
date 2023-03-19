@@ -13,7 +13,7 @@
 
 import 'mocha';
 import {expect} from 'chai';
-import {Route} from '../src/classRoute';
+import {Route} from '../../src/route/classRoute';
 
 
 describe('Getters de la clase Route', () => {

@@ -13,8 +13,8 @@
 
 import 'mocha';
 import {expect} from 'chai';
-import {Retos} from '../src/classRetos';
-import {Actividad} from "../src/classRoute";
+import {Retos} from '../../src/retos/classRetos';
+import {Actividad} from "../../src/route/classRoute";
 
 describe('Reto', () => {
   it('should create an instance', () => {

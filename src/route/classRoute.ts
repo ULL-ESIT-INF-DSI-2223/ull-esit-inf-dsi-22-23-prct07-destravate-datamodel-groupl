@@ -17,14 +17,32 @@
 export type Actividad = "bicicleta" | "correr";
 
 /**
+ * Tipo para representar una coordenada
+ */
+export type GeoLocalization = [number, number];
+
+/**
  * Clase que representa una ruta
  */
 export class Route {
+
+  /**
+   * Constructor de una ruta
+   * @param idRuta_ Id único de la ruta
+   * @param nombreRuta_ Nombre de la ruta
+   * @param geoInicio_ Coordenadas de inicio
+   * @param geoFin_ Coordenadas de final
+   * @param longitudRutaKm_ Longitud de la ruta en km
+   * @param desnivelMedio_ Desnivel medio de la ruta
+   * @param idUsuariosRuta_ Id de los usuarios de la ruta
+   * @param tipoActividad_ Tipo de actividad que se puede hacer en la ruta
+   * @param calificacionMediaRuta_ Calificación media de la ruta 
+   */
   constructor(
     private idRuta_: number,
     private nombreRuta_: string,
     private geoInicio_: [number, number],
-    private geoFin_: [number, number],
+    private geoFin_: GeoLocalization,
     private longitudRutaKm_: number,
     private desnivelMedio_: number,
     private idUsuariosRuta_: number[],

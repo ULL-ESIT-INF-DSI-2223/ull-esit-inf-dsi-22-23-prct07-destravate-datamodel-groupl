@@ -11,7 +11,7 @@
  * @date 26/03/2023
  */
 
-import {Actividad} from "./classRoute";
+import {Actividad} from "../route/classRoute";
 
 export class Retos{
 

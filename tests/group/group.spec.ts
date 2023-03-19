@@ -13,7 +13,7 @@
 
 import 'mocha';
 import {expect} from 'chai';
-import {Grupo, EstadisticasEntrenamiento} from '../src/classGroup';
+import {Grupo, EstadisticasEntrenamiento} from '../../src/group/classGroup';
 
 describe('Group', () => {
 

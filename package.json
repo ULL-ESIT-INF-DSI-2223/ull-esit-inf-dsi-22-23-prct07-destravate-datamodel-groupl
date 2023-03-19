@@ -4,7 +4,7 @@
   "description": "",
   "main": "basicFunctions.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node dist/basicFunctions.js\"",
+    "dev": "tsc-watch --onSuccess \"node dist/funcionamiento.js\"",
     "doc": "typedoc",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov"
@@ -14,6 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.3.4",
+    "@types/inquirer": "^9.0.3",
+    "@types/lowdb": "^1.0.11",
     "@types/mocha": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
