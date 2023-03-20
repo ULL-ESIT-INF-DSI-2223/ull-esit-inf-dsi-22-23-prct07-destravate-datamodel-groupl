@@ -16,21 +16,27 @@ export type EstadisticasEntrenamiento = [number,number];
 
 export class Grupo {
 
- private id: number;
- private nombre: string;
- private participantesGrupo: number[];
- private estadisticaGrupalEntrenamiento: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento];
- private clasificacionUsuario: number[];
- private idRutasFavoritas: number[];
- private todasRutasUsuarios: number[];
+ private id_: number;
+ private nombre_: string;
+ private participantesGrupo_: number[];
+ private estadisticaGrupalEntrenamiento_: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento];
+ private clasificacionUsuario_: number[];
+ private idRutasFavorita_: number[];
+ private todasRutasUsuarios_: number[];
 
 
 
 // Constructor
 
-  constructor(id: number, nombre: string) {
-    this.id = id;
-    this.nombre = nombre;
+  constructor(id: number, nombre: string, participantesGrupo: number[], estadisticaGrupalEntrenamiento: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento], clasificacionUsuario: number[], idRutasFavoritas: number[], todasRutasUsuarios: number[]) {
+    this.id_ = id;
+    this.nombre_ = nombre;
+    this.participantesGrupo_ = participantesGrupo;
+    this.estadisticaGrupalEntrenamiento_ = estadisticaGrupalEntrenamiento;
+    this.clasificacionUsuario_ = clasificacionUsuario;
+    this.idRutasFavorita_ = idRutasFavoritas;
+    this.todasRutasUsuarios_ = todasRutasUsuarios;
+    
   }
 
 // Getters
@@ -38,32 +44,32 @@ export class Grupo {
    * @description Devuelve el id del grupo
    * @returns {number}
    */
-  getId(): number {
-    return this.id;
+  get Id(): number {
+    return this.id_;
   }
 
   /** 
    * @description Devuelve el nombre del grupo
    * @returns {string}
    */
-  getNombre(): string {
-    return this.nombre;
+  get Nombre(): string {
+    return this.nombre_;
   }
 
   /**
    * @description Devuelve los participantes del grupo
    * @returns {number[]}
    */
-  getParticipantesGrupo(): number[] {
-    return this.participantesGrupo;
+  get ParticipantesGrupo(): number[] {
+    return this.participantesGrupo_;
   }
 
   /** 
    * @description Devuelve las estadisticas del grupo
    * @returns {[EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento]}
    */
-  getEstadisticaGrupalEntrenamiento(): [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento] {
-    return this.estadisticaGrupalEntrenamiento;
+  get EstadisticaGrupalEntrenamiento(): [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento] {
+    return this.estadisticaGrupalEntrenamiento_;
   }
 
   /**
@@ -71,24 +77,24 @@ export class Grupo {
    * 
    * @returns {number[]}
    */
-  getClasificacionUsuario(): number[] {
-    return this.clasificacionUsuario;
+  get ClasificacionUsuario(): number[] {
+    return this.clasificacionUsuario_;
   }
 
   /**
    * @description Devuelve las rutas favoritas del grupo
    * @returns {number[]}
    */
-  getIdRutasFavoritas(): number[] {
-    return this.idRutasFavoritas;
+  get IdRutasFavoritas(): number[] {
+    return this.idRutasFavorita_;
   }
 
   /** 
    * @description Devuelve todas las rutas de los usuarios del grupo
    * @returns {number[]}
     */
-  getTodasRutasUsuarios(): number[] {
-    return this.todasRutasUsuarios;
+  get TodasRutasUsuarios(): number[] {
+    return this.todasRutasUsuarios_;
   }
 
 // Setters
@@ -97,28 +103,28 @@ export class Grupo {
    * @description Establece el id del grupo
    */
   setNombre(nombre: string) {
-    this.nombre = nombre;
+    this.nombre_ = nombre;
   }
 
   /** 
    * @description Establece el nombre del grupo
    */
   setParticipantesGrupo(participantesGrupo: number[]) {
-    this.participantesGrupo = participantesGrupo;
+    this.participantesGrupo_ = participantesGrupo;
   }
 
   /**
    * @description Establece los participantes del grupo
    */
   setEstadisticaGrupalEntrenamiento(estadisticaGrupalEntrenamiento: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento]) {
-    this.estadisticaGrupalEntrenamiento = estadisticaGrupalEntrenamiento;
+    this.estadisticaGrupalEntrenamiento_ = estadisticaGrupalEntrenamiento;
   }
 
   /**
    * @description Establece las estadisticas del grupo
    */
   setClasificacionUsuario(clasificacionUsuario: number[]) {
-    this.clasificacionUsuario = clasificacionUsuario;
+    this.clasificacionUsuario_ = clasificacionUsuario;
   }
 
   /**
@@ -126,13 +132,13 @@ export class Grupo {
    * 
    */
   setIdRutasFavoritas(idRutasFavoritas: number[]) {
-    this.idRutasFavoritas = idRutasFavoritas;
+    this.idRutasFavorita_ = idRutasFavoritas;
   }
 
   /**
    * @description Establece las rutas favoritas del grupo
    */
   setTodasRutasUsuarios(todasRutasUsuarios: number[]) {
-    this.todasRutasUsuarios = todasRutasUsuarios;
+    this.todasRutasUsuarios_ = todasRutasUsuarios;
   }
 }

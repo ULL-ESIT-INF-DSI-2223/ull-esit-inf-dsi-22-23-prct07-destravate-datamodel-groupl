@@ -41,7 +41,7 @@ export class Route {
   constructor(
     private idRuta_: number,
     private nombreRuta_: string,
-    private geoInicio_: [number, number],
+    private geoInicio_: GeoLocalization,
     private geoFin_: GeoLocalization,
     private longitudRutaKm_: number,
     private desnivelMedio_: number,

@@ -11,7 +11,7 @@
  * @date 26/03/2023
  */
 
-import { Route } from "./classRoute";
+import { Actividad, Route } from "./classRoute";
 import * as lowdb from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";
 import { GeoLocalization } from "./classRoute";
@@ -19,14 +19,20 @@ import { GeoLocalization } from "./classRoute";
 
 export class routeCollection {
   private nextId = 1;
-  private routeMap = new Map<number, Route>();
+  protected routeMap = new Map<number, Route>();
   constructor(routeItems: Route[] = []) {
     routeItems.forEach(item => this.routeMap.set(item.idRuta, item));
+    this.nextId = routeItems.length + 1;
   }
 
   addRoute(route: Route) {
     this.routeMap.set(this.nextId++, route);
   }
+
+  getRoute(id: number) {
+    return this.routeMap.get(id);
+  }
+
 
   orderRoutesAlfabeticallAsc() {
     const routes = Array.from(this.routeMap.values());
@@ -100,23 +106,92 @@ export class routeCollection {
 
 
 type schemaType = {
-  tasks: { idRuta: number; nombreRuta: string; geoInicio: Geolocation; geoFin: Geolocation; longitudRuta: number; desnivel: number, idUsuarios:  }[]
+  routes: { idRuta_: number; nombreRuta_: string; geoInicio_: GeoLocalization; geoFin_: GeoLocalization; longitudRutaKm_: number; desnivelMedio_: number, idUsuariosRuta_: number[]; tipoActividad_: Actividad; calificacionMediaRuta_: number}[]
 };
 
-export class JsonRouteCollection extends routeCollection {
+export class jsonRouteCollection extends routeCollection {
 
   private database: lowdb.LowdbSync<schemaType>;
 
-    constructor(routeItems: Route[] = []) {
-      super([]);
-      this.database = lowdb(new FileSync("Todos.json"));
-      if (this.database.has("tasks").value())  {
-          const dbItems = this.database.get("tasks").value();
-          dbItems.forEach(item => this.routeItems.set(item.idRuta,
-              new Route(item.id, item.task, item.complete)));
-      } else {
-          this.database.set("tasks", todoItems).write();
-          todoItems.forEach(item => this.routeItems.set(item.idRuta, item));
-      }
+  constructor(routeItems: Route[] = []) {
+    super(routeItems);
+    this.database = lowdb(new FileSync("./db/RouteItems.json"));
+    if (this.database.has("routes").value())  {
+      const dbItems = this.database.get("routes").value();
+      dbItems.forEach(item => this.routeMap.set(item.idRuta_,
+      new Route(item.idRuta_, item.nombreRuta_, item.geoInicio_, item.geoFin_, item.longitudRutaKm_, item.desnivelMedio_, item.idUsuariosRuta_, item.tipoActividad_, item.calificacionMediaRuta_)));
+    } else {
+        this.database.set("routes", routeItems).write();
+        routeItems.forEach(item => this.routeMap.set(item.idRuta, item));
+    }
+  }
+
+  private storeTasks() {
+    this.database.set("routes", [...this.routeMap.values()]).write();
+  }
+  
+  addRoute(route: Route) {
+    const result = super.addRoute(route);
+    this.storeTasks();
+    return result;
+  }
+
+  getRoute(id: number): Route | undefined{
+    const result = super.getRoute(id);
+    return result;
+  }
+
+
+  orderRoutesAlfabeticallAsc(): Route[] {
+    const result = super.orderRoutesAlfabeticallAsc();
+    return result;
+  }
+
+  orderRoutesAlfabeticallDesc(): Route[] {
+    const result = super.orderRoutesAlfabeticallDesc();
+    return result;
+  }
+
+  amountUserAsc(): Route[] {
+    const result = super.amountUserAsc();
+    return result;
+  }
+
+  amountUserDesc(): Route[] {
+    const result = super.amountUserDesc();
+    return result;
+  }
+
+  orderRoutesByLengthAsc(): Route[] {
+    const result = super.orderRoutesByLengthAsc();
+    return result;
+  }
+
+  orderRoutesByLengthDesc(): Route[] {
+    const result = super.orderRoutesByLengthDesc();
+    return result;
+  }
+
+  orderRoutesByCalificationAsc(): Route[] {
+    const result = super.orderRoutesByCalificationAsc();
+    return result;
+  }
+
+  orderRoutesByCalificationDesc(): Route[] {
+    const result = super.orderRoutesByCalificationDesc();
+    return result;
+  }
+
+  orderRoutesByActivityAsc(): Route[] {
+    const result = super.orderRoutesByActivityAsc();
+    return result;
+  }
+
+  orderRoutesByActivityDesc(): Route[] {
+    const result = super.orderRoutesByActivityDesc();
+    return result;
   }
 } 
+
+
+

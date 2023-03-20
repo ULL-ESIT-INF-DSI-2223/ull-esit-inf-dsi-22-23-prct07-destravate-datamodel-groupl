@@ -24,13 +24,13 @@ describe('Group', () => {
 
   it('should create a group with a name', () => {
     const group = new Grupo(1, 'Grupo de prueba');
-    expect(group.getId()).to.be.equal(1);
+    expect(group.Id()).to.be.equal(1);
   });
 
   it('should create a group with a participants', () => {
     const group = new Grupo(1, 'Grupo de prueba');
     group.setParticipantesGrupo([10]);
-    expect(group.getParticipantesGrupo()).to.be.eql([10]);
+    expect(group.ParticipantesGrupo()).to.be.eql([10]);
   });
 
   it('should create a group with a estadisticas', () => {
@@ -41,26 +41,26 @@ describe('Group', () => {
     const group = new Grupo(1, 'Grupo de prueba');
     group.setEstadisticaGrupalEntrenamiento([estadisticas, estadisticas2, estadisticas3]);
 
-    expect(group.getEstadisticaGrupalEntrenamiento()).to.be.eql([estadisticas, estadisticas2, estadisticas3]);
+    expect(group.EstadisticaGrupalEntrenamiento()).to.be.eql([estadisticas, estadisticas2, estadisticas3]);
 
   });
 
   it('should create a group with a clasificacion', () => {
     const group = new Grupo(1, 'Grupo de prueba');
     group.setClasificacionUsuario([10]);
-    expect(group.getClasificacionUsuario()).to.be.eql([10]);
+    expect(group.ClasificacionUsuario()).to.be.eql([10]);
   });
 
   it('should create a group with a idrutas', () => {
     const group = new Grupo(1, 'Grupo de prueba');
     group.setIdRutasFavoritas([10]);
-    expect(group.getIdRutasFavoritas()).to.be.eql([10]);
+    expect(group.IdRutasFavoritas()).to.be.eql([10]);
   });
 
   it('should create a group with a todasidrutas', () => {
     const group = new Grupo(1, 'Grupo de prueba');
     group.setTodasRutasUsuarios([10]);
-    expect(group.getTodasRutasUsuarios()).to.be.eql([10]);
+    expect(group.TodasRutasUsuarios()).to.be.eql([10]);
   });
 });
 
