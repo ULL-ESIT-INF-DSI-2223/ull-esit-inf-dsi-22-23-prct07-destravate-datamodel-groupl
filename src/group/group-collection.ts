@@ -106,7 +106,7 @@ export class jsonGroupCollection extends groupCollection {
     }
   }
   private storeTasks() {
-      this.database.set("retos", Array.from(this.groupMap.values())).write();
+      this.database.set("groups", Array.from(this.groupMap.values())).write();
     }
 
   addGroup(group: Grupo): void {
@@ -165,3 +165,12 @@ export class jsonGroupCollection extends groupCollection {
 } 
 
 
+
+const jsonGroupCollection1 = new jsonGroupCollection();
+
+const group1 = new Grupo(1, "Grupo1", [1,2,3], [[1,2],[1,2],[1,2]], [1,2,3], [1,2,3], [1,2,3]);
+jsonGroupCollection1.addGroup(group1);
+const group2 = new Grupo(2, "Grupo2", [1,2,3], [[1,2],[1,2],[1,2]], [1,2,3], [1,2,3], [1,2,3]);
+
+
+jsonGroupCollection1.addGroup(group2);

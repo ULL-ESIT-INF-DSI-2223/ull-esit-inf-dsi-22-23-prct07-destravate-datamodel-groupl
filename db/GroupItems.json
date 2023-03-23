@@ -1,0 +1,156 @@
+{
+  "groups": [
+    {
+      "id_": 1,
+      "nombre_": "Grupo1",
+      "participantesGrupo_": [
+        1,
+        2,
+        3
+      ],
+      "estadisticaGrupalEntrenamiento_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "clasificacionUsuario_": [
+        1,
+        2,
+        3
+      ],
+      "idRutasFavorita_": [
+        1,
+        2,
+        3
+      ],
+      "todasRutasUsuarios_": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id_": 2,
+      "nombre_": "Grupo2",
+      "participantesGrupo_": [
+        1,
+        2,
+        3
+      ],
+      "estadisticaGrupalEntrenamiento_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "clasificacionUsuario_": [
+        1,
+        2,
+        3
+      ],
+      "idRutasFavorita_": [
+        1,
+        2,
+        3
+      ],
+      "todasRutasUsuarios_": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id_": 1,
+      "nombre_": "Grupo1",
+      "participantesGrupo_": [
+        1,
+        2,
+        3
+      ],
+      "estadisticaGrupalEntrenamiento_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "clasificacionUsuario_": [
+        1,
+        2,
+        3
+      ],
+      "idRutasFavorita_": [
+        1,
+        2,
+        3
+      ],
+      "todasRutasUsuarios_": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id_": 2,
+      "nombre_": "Grupo2",
+      "participantesGrupo_": [
+        1,
+        2,
+        3
+      ],
+      "estadisticaGrupalEntrenamiento_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "clasificacionUsuario_": [
+        1,
+        2,
+        3
+      ],
+      "idRutasFavorita_": [
+        1,
+        2,
+        3
+      ],
+      "todasRutasUsuarios_": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}
