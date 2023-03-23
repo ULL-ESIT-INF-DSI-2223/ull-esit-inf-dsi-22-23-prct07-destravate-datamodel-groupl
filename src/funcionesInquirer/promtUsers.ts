@@ -46,10 +46,10 @@ export function pruebaInquirerUsers(userCollection: jsonUserCollection) {
 
     if (respuesta.orden == 'Alfabeticamente') {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(userCollection.orderUsersAlfabeticallAsc());
+        console.table(userCollection.orderUsersAlfabeticallAsc());
       }
       else {
-        console.log(userCollection.orderUsersAlfabeticallDesc());
+        console.table(userCollection.orderUsersAlfabeticallDesc());
       }
     }
     else {
@@ -57,32 +57,32 @@ export function pruebaInquirerUsers(userCollection: jsonUserCollection) {
 
         if (respuesta.frecuencia == 'Semanal' ){
 
-          console.log(userCollection.orderUsersByKMDayAsc());
+          console.table(userCollection.orderUsersByKMDayAsc());
 
 
         }
         else if (respuesta.frecuencia == 'Mensual' ){
 
-          console.log(userCollection.orderUsersByKMMonthAsc());
+          console.table(userCollection.orderUsersByKMMonthAsc());
 
         }
 
         else {
-          console.log(userCollection.orderUsersByKMYearAsc());
+          console.table(userCollection.orderUsersByKMYearAsc());
         }
       }
       else {
         if (respuesta.frecuencia == 'Semanal' ){
-          console.log(userCollection.orderUsersByKMDayDesc());
+          console.table(userCollection.orderUsersByKMDayDesc());
         }
         else if (respuesta.frecuencia == 'Mensual' ){
 
-          console.log(userCollection.orderUsersByKMMonthDesc());
+          console.table(userCollection.orderUsersByKMMonthDesc());
 
         }
 
         else {
-          console.log(userCollection.orderUsersByKMYearDesc());
+          console.table(userCollection.orderUsersByKMYearDesc());
         }
       }
     }

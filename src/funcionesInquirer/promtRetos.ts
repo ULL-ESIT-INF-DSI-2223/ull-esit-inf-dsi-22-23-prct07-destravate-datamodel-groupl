@@ -35,27 +35,27 @@ export function pruebaInquirerRetos(restosCollection: jsonRetosCollection) {
 
     if (respuesta.orden == 'Alfabeticamente') {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(restosCollection.orderAlfabeticallRetosAsc());
+        console.table(restosCollection.orderAlfabeticallRetosAsc());
       }
       else {
-        console.log(restosCollection.orderAlfabeticallRetosDesc());
+        console.table(restosCollection.orderAlfabeticallRetosDesc());
       }
     }
     else if (respuesta.orden == 'Por KM') {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(restosCollection.orderDistanceAsc());
+        console.table(restosCollection.orderDistanceAsc());
       }
       else {
-        console.log(restosCollection.orderDistanceDesc());
+        console.table(restosCollection.orderDistanceDesc());
       }
     }
 
     else {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(restosCollection.orderCantidadUsuariosAsc());
+        console.table(restosCollection.orderCantidadUsuariosAsc());
       }
       else {
-        console.log(restosCollection.orderCantidadUsuariosDesc());
+        console.table(restosCollection.orderCantidadUsuariosDesc());
       }
     }
     

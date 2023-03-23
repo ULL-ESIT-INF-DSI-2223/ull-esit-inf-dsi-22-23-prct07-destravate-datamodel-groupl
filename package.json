@@ -4,7 +4,7 @@
   "description": "",
   "main": "basicFunctions.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node dist/funcionesInquirer/promtUsers.js\"",
+    "dev": "tsc-watch --onSuccess \"node dist/funcionesInquirer/promptRoutes.js\"",
     "doc": "typedoc",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov"
