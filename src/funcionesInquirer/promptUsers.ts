@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { User } from '../user/classUser';
-import { jsonUserCollection } from '../user/user-collection';
+import { jsonUserCollection } from '../user/jsonuser-collection';
 
 //funcion prueba inquirer
 const prompt = inquirer.createPromptModule();

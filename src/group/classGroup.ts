@@ -142,37 +142,3 @@ export class Grupo {
     this.todasRutasUsuarios_ = todasRutasUsuarios;
   }
 }
-
-
-
-// type schemaTypeRetos = {
-//   groups: {id: number; nombre: string; rutasRetos: number; tipoActividad: Actividad; kmTotales: number; idUsersRetos: number[]}[]
-// };
-
-// export class jsonRetosCollection extends retosCollection {
-
-//   private database: lowdb.LowdbSync<schemaTypeRetos>;
-
-//   constructor(retosItems: Retos[] = []) {
-//     super(retosItems);
-//     this.database = lowdb(new FileSync("./db/retoItems.json"));
-//     if (this.database.has("retos").value())  {
-//       const dbItems = this.database.get("retos").value();
-//       dbItems.forEach(item => this.retosMap.set(item.id, new Retos(item.id, item.nombre)));
-//       this.nextId = this.database.get("retos").value().length + 1;
-//     } else {
-//         this.database.set("retos", retosItems).write();
-//         retosItems.forEach(item => this.retosMap.set(item.getId(), item));
-//         this.nextId = this.database.get("retos").value().length + 1;
-//     }
-//   }
-
-//   private storeTasks() {
-//     this.database.set("retos", Array.from(this.retosMap.values())).write();
-//   }
-  
-//   getNextId() {
-//     return this.nextId;
-//   }
-
-// } 

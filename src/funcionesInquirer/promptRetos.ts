@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { Retos } from '../retos/classRetos';
-import { jsonRetosCollection } from '../retos/retos-collection';
+import { jsonRetosCollection } from '../retos/jsonretos-collection';
 
 //funcion prueba inquirer
 const prompt = inquirer.createPromptModule();

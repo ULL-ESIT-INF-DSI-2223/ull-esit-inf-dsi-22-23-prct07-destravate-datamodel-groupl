@@ -12,7 +12,7 @@
  */
 
 import * as inquirer from 'inquirer';
-import { jsonRouteCollection } from '../route/route-collection';
+import { jsonRouteCollection } from '../route/jsonroute-collection';
 
 const prompt = inquirer.createPromptModule();
 

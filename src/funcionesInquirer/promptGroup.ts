@@ -1,6 +1,6 @@
 import * as inquirer from 'inquirer';
 import { Grupo } from '../group/classGroup';
-import { jsonGroupCollection } from '../group/group-collection';
+import { jsonGroupCollection } from '../group/jsongroup-collection';
 
 
 const prompt = inquirer.createPromptModule();
@@ -53,7 +53,7 @@ export function pruebaInquirerGroups(groupCollection: jsonGroupCollection) {
           console.table(groupCollection.orderGroupByKMMonthASC());
         }
         else  {
-          console.table(groupCollection.orderGroupByKMYearkASC);
+          console.table(groupCollection.orderGroupByKMYearASC);
         }
       }
       else {

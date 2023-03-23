@@ -19,13 +19,13 @@ import {Actividad} from "../../src/route/classRoute";
 describe('Reto', () => {
   it('should create an instance', () => {
 
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
     expect(reto).to.be.an.instanceOf(Retos);
 
   });
 
   it('should have a name', () => {
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
 
     expect(reto.getId()).to.equal(1);
 
@@ -35,7 +35,7 @@ describe('Reto', () => {
 
   it('should have a name', () => {
 
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
 
     expect(reto.getNombre()).to.equal("reto1");
 
@@ -46,7 +46,7 @@ describe('Reto', () => {
 
   it('should have a rutasRetos', () => {
 
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
 
 
 
@@ -57,7 +57,7 @@ describe('Reto', () => {
 
   it('should have a tipoActividad', () => {
 
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
     const actividad: Actividad = "bicicleta";
 
     reto.setTipoActividad(actividad);
@@ -69,7 +69,7 @@ describe('Reto', () => {
 
   it('should have a kmTotales', () => {
 
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
 
     reto.setKmTotales(10);
     expect(reto.getKmTotales()).to.equal(10);
@@ -78,7 +78,7 @@ describe('Reto', () => {
 
   it('should have a idRetosUsuarios', () => {
 
-    const reto = new Retos(1, "reto1");
+    const reto = new Retos(1, "reto1", [1, 2], "bicicleta", 10, [1, 2]);
 
     reto.setIdUsersRetos([1, 2]);
     expect(reto.getIdUsersRetos()).to.be.deep.equal([1, 2]);
