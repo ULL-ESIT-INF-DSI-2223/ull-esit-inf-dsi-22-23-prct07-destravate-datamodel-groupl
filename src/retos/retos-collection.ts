@@ -19,7 +19,7 @@ import  {Actividad} from '../route/classRoute';
 
 
 export class retosCollection {
-  private nextId = 1;
+  protected nextId = 1;
   protected retosMap = new Map<number, Retos>();
   constructor(retosItems: Retos[] = []) {
     retosItems.forEach(item => this.retosMap.set(item.getId(), item));
@@ -79,7 +79,7 @@ export class retosCollection {
 
 
 type schemaTypeRetos = {
-  retos: {id: number; nombre: string; rutasRetos: number; tipoActividad: Actividad; kmTotales: number; idUsersRetos: number[]}[]
+  retos: {id: number; nombre: string; rutasRetos: number[]; tipoActividad: Actividad; kmTotales: number; idUsersRetos: number[]}[]
 };
 
 export class jsonRetosCollection extends retosCollection {
@@ -91,15 +91,21 @@ export class jsonRetosCollection extends retosCollection {
     this.database = lowdb(new FileSync("./db/retoItems.json"));
     if (this.database.has("retos").value())  {
       const dbItems = this.database.get("retos").value();
-      dbItems.forEach(item => this.retosMap.set(item.id, new Retos(item.id, item.nombre)));
+      dbItems.forEach(item => this.retosMap.set(item.id, new Retos(item.id, item.nombre, item.rutasRetos, item.tipoActividad, item.kmTotales, item.idUsersRetos)));
+      this.nextId = this.database.get("retos").value().length + 1;
     } else {
         this.database.set("retos", retosItems).write();
         retosItems.forEach(item => this.retosMap.set(item.getId(), item));
+        this.nextId = this.database.get("retos").value().length + 1;
     }
   }
 
   private storeTasks() {
     this.database.set("retos", Array.from(this.retosMap.values())).write();
+  }
+  
+  getNextId() {
+    return this.nextId;
   }
 
   addReto(reto: Retos) {
@@ -137,38 +143,16 @@ export class jsonRetosCollection extends retosCollection {
   }
 } 
 
-// const reto1 = new Retos(1, "Reto 1");
-// reto1.setKmTotales(10);
-// reto1.setIdUsersRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto1.setRutasRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto1.setTipoActividad("bicicleta");
 
-// const reto2 = new Retos(2, "Reto 2");
-// reto2.setKmTotales(20);
-// reto2.setIdUsersRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto2.setRutasRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto2.setTipoActividad("bicicleta");
-
-// const reto3 = new Retos(3, "Reto 3");
-// reto3.setKmTotales(30);
-// reto3.setIdUsersRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto3.setRutasRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto3.setTipoActividad("bicicleta");
-
-// const retos = [reto1, reto2, reto3];
-
-// const jsonretos1 = new jsonRetosCollection(retos);
-
-// console.log(jsonretos1.orderAlfabeticallRetosAsc());
-// console.log(jsonretos1.orderAlfabeticallRetosDesc());
-
-// const reto4 = new Retos(4, "Reto 4");
-// reto4.setKmTotales(40);
-// reto4.setIdUsersRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto4.setRutasRetos([1,2,3,4,5,6,7,8,9,10]);
-// reto4.setTipoActividad("bicicleta");
 
 // const jsonretos1 = new jsonRetosCollection([]);
-// jsonretos1.addReto(reto4);
 
-////
+// const reto1 = new Retos(jsonretos1.getNextId(), "Reto 5", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
+
+// jsonretos1.addReto(reto1);
+
+// const reto2 = new Retos(jsonretos1.getNextId(), "Reto 6", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
+
+
+// jsonretos1.addReto(reto2);
+

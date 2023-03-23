@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "userName_": "Alberto"
+    },
+    {
+      "id_": 4,
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": [],
+      "userName_": "Ismael"
+    },
+    {
+      "id_": 5,
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": [],
+      "userName_": "Alberto"
+    },
+    {
+      "id_": 6,
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": [],
+      "userName_": "Alberto"
+    }
+  ]
+}

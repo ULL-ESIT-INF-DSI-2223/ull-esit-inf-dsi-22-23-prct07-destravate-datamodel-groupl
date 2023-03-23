@@ -4,7 +4,7 @@
   "description": "",
   "main": "basicFunctions.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node dist/retos/retos-collection.js\"",
+    "dev": "tsc-watch --onSuccess \"node dist/user/user-collection.js\"",
     "doc": "typedoc",
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov"

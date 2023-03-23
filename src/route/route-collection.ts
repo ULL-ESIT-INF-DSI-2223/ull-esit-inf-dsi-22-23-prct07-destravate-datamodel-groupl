@@ -18,7 +18,7 @@ import { GeoLocalization } from "./classRoute";
 
 
 export class routeCollection {
-  private nextId = 1;
+  protected nextId = 1;
   protected routeMap = new Map<number, Route>();
   constructor(routeItems: Route[] = []) {
     routeItems.forEach(item => this.routeMap.set(item.idRuta, item));
@@ -112,22 +112,27 @@ type schemaType = {
 export class jsonRouteCollection extends routeCollection {
 
   private database: lowdb.LowdbSync<schemaType>;
-
   constructor(routeItems: Route[] = []) {
     super(routeItems);
     this.database = lowdb(new FileSync("./db/RouteItems.json"));
-    if (this.database.has("routes").value())  {
+    if (this.database.has("routes").value())  { // Si existe la base de datos
       const dbItems = this.database.get("routes").value();
       dbItems.forEach(item => this.routeMap.set(item.idRuta_,
       new Route(item.idRuta_, item.nombreRuta_, item.geoInicio_, item.geoFin_, item.longitudRutaKm_, item.desnivelMedio_, item.idUsuariosRuta_, item.tipoActividad_, item.calificacionMediaRuta_)));
-    } else {
+      this.nextId = this.database.get("routes").value().length + 1;
+    } else { // No existe la base de datos
         this.database.set("routes", routeItems).write();
         routeItems.forEach(item => this.routeMap.set(item.idRuta, item));
+        this.nextId = this.database.get("routes").value().length + 1;
     }
   }
 
   private storeTasks() {
     this.database.set("routes", [...this.routeMap.values()]).write();
+  }
+
+  getNextId() {
+    return this.nextId;
   }
   
   addRoute(route: Route) {
@@ -194,4 +199,11 @@ export class jsonRouteCollection extends routeCollection {
 } 
 
 
+// const jsonroutecollection = new jsonRouteCollection([]);
 
+
+
+
+// const route3 = new Route(jsonroutecollection.getNextId(), "Ruta 3", [40.416775, -3.703790], [40.416775, -3.703790], 10, 10, [1,2,3], "bicicleta", 5);
+
+// jsonroutecollection.addRoute(route3);

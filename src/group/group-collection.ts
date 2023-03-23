@@ -18,7 +18,7 @@ import * as FileSync from "lowdb/adapters/FileSync";
 
 
 export class groupCollection {
-  private nextId = 1;
+  protected nextId = 1;
   protected groupMap = new Map<number, Grupo>();
   constructor(groupItems: Grupo[] = []) {
     groupItems.forEach(item => this.groupMap.set(item.Id, item));
@@ -41,15 +41,33 @@ export class groupCollection {
     return Array.from(this.groupMap.values()).sort((a, b) => b.Id - a.Id);
   }
 
-  orderGroupByKMASC(): Grupo[] {
+  orderGroupByKMWeekASC(): Grupo[] {
     return Array.from(this.groupMap.values()).sort((a, b) => a.EstadisticaGrupalEntrenamiento[0][0] - b.EstadisticaGrupalEntrenamiento[0][0]);
   }
-  // TODO
 
-  orderGroupByKMDESC(): Grupo[] {
+  orderGroupByKMMonthASC(): Grupo[] {
+    return Array.from(this.groupMap.values()).sort((a, b) => a.EstadisticaGrupalEntrenamiento[1][0] - b.EstadisticaGrupalEntrenamiento[1][0]);
+  }
+
+  orderGroupByKMYearkASC(): Grupo[] {
+    return Array.from(this.groupMap.values()).sort((a, b) => a.EstadisticaGrupalEntrenamiento[2][0] - b.EstadisticaGrupalEntrenamiento[2][0]);
+  }
+
+  orderGroupByKMWeekDESC(): Grupo[] {
 
     return Array.from(this.groupMap.values()).sort((a, b) => b.EstadisticaGrupalEntrenamiento[0][0] - a.EstadisticaGrupalEntrenamiento[0][0]);
   }
+
+  orderGroupByKMMonthDESC(): Grupo[] {
+
+    return Array.from(this.groupMap.values()).sort((a, b) => b.EstadisticaGrupalEntrenamiento[0][0] - a.EstadisticaGrupalEntrenamiento[0][0]);
+  }
+
+  orderGroupByKMYearDESC(): Grupo[] {
+
+    return Array.from(this.groupMap.values()).sort((a, b) => b.EstadisticaGrupalEntrenamiento[0][0] - a.EstadisticaGrupalEntrenamiento[0][0]);
+  }
+
 
   orderGroupByNumberMembersASC(): Grupo[] {
     return Array.from(this.groupMap.values()).sort((a, b) => a.ParticipantesGrupo.length- b.ParticipantesGrupo.length);
@@ -80,10 +98,69 @@ export class jsonGroupCollection extends groupCollection {
     if (this.database.has("groups").value())  {
       const dbItems = this.database.get("groups").value();
       dbItems.forEach(item => this.groupMap.set(item.id_, new Grupo(item.id_, item.nombre_, item.participantesGrupo_, item.estadisticaGrupalEntrenamiento_, item.clasificacionUsuario_, item.idRutasFavorita_, item.todasRutasUsuarios_)));
+      this.nextId = this.database.get("groups").value().length + 1;
     } else {
         this.database.set("groups", groupItems).write();
         groupItems.forEach(item => this.groupMap.set(item.Id, item));
+        this.nextId = this.database.get("groups").value().length + 1;
     }
+  }
+  private storeTasks() {
+      this.database.set("retos", Array.from(this.groupMap.values())).write();
+    }
+
+  addGroup(group: Grupo): void {
+    const result = super.addGroup(group);
+    this.storeTasks();
+    return result;
+  }
+
+  getNextId() {
+    return this.nextId;
+  }
+
+  getGroup(id: number): Grupo | undefined {
+    return super.getGroup(id);
+  }
+
+  orderGroupASC(): Grupo[] {
+    return super.orderGroupASC();
+  }
+
+  orderGroupDESC(): Grupo[] {
+    return super.orderGroupDESC();
+  }
+
+  orderGroupByKMWeekASC(): Grupo[] {
+    return super.orderGroupByKMWeekASC();
+  }
+
+  orderGroupByKMWeekDESC(): Grupo[] {
+    return super.orderGroupByKMWeekDESC();
+  }
+
+  orderGroupByKMMonthASC(): Grupo[] {
+    return super.orderGroupByKMMonthASC();
+  }
+
+  orderGroupByKMMonthDESC(): Grupo[] {
+    return super.orderGroupByKMMonthDESC();
+  }
+
+  orderGroupByKMYearkASC(): Grupo[] {
+    return super.orderGroupByKMYearkASC();
+  }
+
+  orderGroupByKMYearDESC(): Grupo[] {
+    return super.orderGroupByKMYearDESC();
+  }
+
+  orderGroupByNumberMembersASC(): Grupo[] {
+    return super.orderGroupByNumberMembersASC();
+  }
+
+  orderGroupByNumberMembersDESC(): Grupo[] {
+    return super.orderGroupByNumberMembersDESC();
   }
 } 
 

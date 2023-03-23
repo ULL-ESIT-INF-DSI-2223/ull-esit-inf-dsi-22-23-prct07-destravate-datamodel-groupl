@@ -23,9 +23,15 @@ export class Retos{
   private idUsersRetos: number[];
 
 
-  constructor(id: number, nombre: string) {
+  constructor(id: number, nombre: string, rutasRetos: number[], tipoActividad: Actividad, kmTotales: number, idUsersRetos: number[]) {
     this.id = id;
     this.nombre = nombre;
+    this.rutasRetos = rutasRetos;
+    this.tipoActividad = tipoActividad;
+    this.kmTotales = kmTotales;
+    this.idUsersRetos = idUsersRetos;
+
+
   }
 
   //Getters

@@ -16,12 +16,12 @@ import { Actividad } from "../route/classRoute";
 /**
  * Tipo que permite determinar las estadísticas de cantidad de km y desnivel total por día, mes y año actual
  */
-type stats = [[number, number], [number, number], [number, number]];
+export type stats = [[number, number], [number, number], [number, number]];
 
 /**
  * Tipo para guardar el histórico de rutas de un día
  */
-type historic = [string, number[]];
+export type historic = [string, number[]];
 
 /**
  * Clase para representar a un usuario del sistema 
@@ -31,35 +31,29 @@ export class User {
   private activities_: Actividad[] = [];
   private friends_: number[] = [];
   private groups_: number[] = [];
-  private stats_: stats[] = []; // duda esto debería ser un array de estadísticas ??
+  private stats_: stats; 
   private favouriteRoutes_: number[] = [];
   private challenges_: number[] = [];
   private historic_: historic[] = [];
-  
-  private static idLastUser_: number;
+  private userName_: string;
+
   
   /**
    * Permite darle un nombre de usuario al nuevo usuario a crear
    * @param userName_ 
    */
-  constructor(private userName_: string) {
+  constructor( id: number, userName: string,  activities: Actividad[], friends: number[], groups: number[], stats: stats, favouriteRoutes: number[], challenges: number[], historic: historic[]) {
+    this.id_ = id;
+    this.userName_ = userName;
+    this.activities_ = activities;
+    this.friends_ = friends;
+    this.groups_ = groups;
+    this.stats_ = stats;
+    this.favouriteRoutes_ = favouriteRoutes;
+    this.challenges_ = challenges;
+    this.historic_ = historic;
+  
 
-  }
-
-  /**
-   * Variable global, que permite al sistema determinar el id de un nuevo usuario a partir del anterior
-   * @param id_ 
-   */
-  static idLastUser(id_: number) {
-    User.idLastUser_ = id_;
-  }
-
-  /**
-   * Método para que el sistema asigne un id al usuario
-   */
-  setId() {
-    this.id_ = User.idLastUser_ + 1;
-    User.idLastUser(this.id_);
   }
 
   /**
@@ -131,7 +125,7 @@ export class User {
    * @param new_stats Nueva estadística a añadir 
    */
   setStats(new_stats: stats) {
-    this.stats_.push(new_stats);
+    this.stats_ = new_stats;
   }
 
   /**
