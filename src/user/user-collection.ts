@@ -88,10 +88,9 @@ export class userCollection {
 }
 
 type schemaType = {
-  users: {  id: number; userName_: string; activities: Actividad[]; friends: number[]; groups: number[]; stats: stats; favouriteusers: number[]; challenges: number[]; historic: historic[]}[];
+  users: {  id_: number; userName_: string; activities_: Actividad[]; friends_: number[];  groups_: number[]; stats_: stats; favouriteRoutes_: number[]; challenges_: number[]; historic_: historic[];
+  }[];
 };
-
-
 
 export class jsonUserCollection extends userCollection {
 
@@ -101,8 +100,8 @@ export class jsonUserCollection extends userCollection {
     this.database = lowdb(new FileSync("./db/UserItems.json"));
     if (this.database.has("users").value())  { // Si existe la base de datos
       const dbItems = this.database.get("users").value();
-      dbItems.forEach(item => this.userMap.set(item.id,
-      new User(item.id, item.userName_, item.activities, item.friends, item.groups, item.stats, item.favouriteusers, item.challenges, item.historic)));
+      dbItems.forEach(item => this.userMap.set(item.id_,
+      new User(item.id_, item.userName_, item.activities_, item.friends_, item.groups_, item.stats_, item.favouriteRoutes_, item.challenges_, item.historic_)));
       this.nextId = this.database.get("users").value().length + 1;
     } else { // No existe la base de datos
         this.database.set("users", usersItems).write();
@@ -174,16 +173,16 @@ export class jsonUserCollection extends userCollection {
   
 } 
 
-const jsonusercollection1 = new jsonUserCollection([]);
+// const jsonusercollection1 = new jsonUserCollection([]);
 
-const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+// const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 
-jsonusercollection1.addUser(user1);
+// jsonusercollection1.addUser(user1);
 
-const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+// const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 
-jsonusercollection1.addUser(user2);
+// jsonusercollection1.addUser(user2);
 
-const user3 = new User( jsonusercollection1.getNextId(), "Alberto", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+// const user3 = new User( jsonusercollection1.getNextId(), "Alberto", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 
-jsonusercollection1.addUser(user3);
+// jsonusercollection1.addUser(user3);

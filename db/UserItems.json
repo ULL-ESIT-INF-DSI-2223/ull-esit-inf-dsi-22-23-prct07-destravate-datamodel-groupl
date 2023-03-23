@@ -1,10 +1,86 @@
 {
   "users": [
     {
-      "userName_": "Alberto"
+      "id_": 1,
+      "userName_": "Ismael",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": []
+    },
+    {
+      "id_": 2,
+      "userName_": "Alberto",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": []
+    },
+    {
+      "id_": 3,
+      "userName_": "Alberto",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": []
     },
     {
       "id_": 4,
+      "userName_": "Ismael",
       "activities_": [
         "bicicleta"
       ],
@@ -26,11 +102,11 @@
       ],
       "favouriteRoutes_": [],
       "challenges_": [],
-      "historic_": [],
-      "userName_": "Ismael"
+      "historic_": []
     },
     {
       "id_": 5,
+      "userName_": "Alberto",
       "activities_": [
         "bicicleta"
       ],
@@ -52,11 +128,11 @@
       ],
       "favouriteRoutes_": [],
       "challenges_": [],
-      "historic_": [],
-      "userName_": "Alberto"
+      "historic_": []
     },
     {
       "id_": 6,
+      "userName_": "Alberto",
       "activities_": [
         "bicicleta"
       ],
@@ -78,8 +154,7 @@
       ],
       "favouriteRoutes_": [],
       "challenges_": [],
-      "historic_": [],
-      "userName_": "Alberto"
+      "historic_": []
     }
   ]
 }

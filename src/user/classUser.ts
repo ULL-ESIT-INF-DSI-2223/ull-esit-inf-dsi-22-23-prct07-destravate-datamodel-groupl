@@ -27,7 +27,8 @@ export type historic = [string, number[]];
  * Clase para representar a un usuario del sistema 
  */
 export class User {
-  private id_: number;
+  private id_: number;  
+  private userName_: string;
   private activities_: Actividad[] = [];
   private friends_: number[] = [];
   private groups_: number[] = [];
@@ -35,7 +36,7 @@ export class User {
   private favouriteRoutes_: number[] = [];
   private challenges_: number[] = [];
   private historic_: historic[] = [];
-  private userName_: string;
+
 
   
   /**

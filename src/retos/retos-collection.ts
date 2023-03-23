@@ -107,6 +107,7 @@ export class jsonRetosCollection extends retosCollection {
   getNextId() {
     return this.nextId;
   }
+  
 
   addReto(reto: Retos) {
     const result = super.addRetos(reto);
@@ -147,11 +148,11 @@ export class jsonRetosCollection extends retosCollection {
 
 // const jsonretos1 = new jsonRetosCollection([]);
 
-// const reto1 = new Retos(jsonretos1.getNextId(), "Reto 5", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
+// const reto1 = new Retos(jsonretos1.getNextId(), "Reto 7", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
 
 // jsonretos1.addReto(reto1);
 
-// const reto2 = new Retos(jsonretos1.getNextId(), "Reto 6", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
+// const reto2 = new Retos(jsonretos1.getNextId(), "Reto 8", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
 
 
 // jsonretos1.addReto(reto2);
