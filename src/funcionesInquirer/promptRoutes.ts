@@ -17,7 +17,7 @@ import { jsonRouteCollection } from '../route/jsonroute-collection';
 const prompt = inquirer.createPromptModule();
 
 
-export function pruebaInquirerRoutes(routeCollection: jsonRouteCollection) {
+export function InquirerRoutes(routeCollection: jsonRouteCollection) {
   prompt([
     {
       type: 'list',

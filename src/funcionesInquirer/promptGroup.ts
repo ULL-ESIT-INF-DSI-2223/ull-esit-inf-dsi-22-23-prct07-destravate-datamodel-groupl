@@ -1,3 +1,16 @@
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Asignatura: Desarrollo de Sistemas Informáticos
+ * Curso: 3º
+ * Práctica 7: Destravate
+ * @author Ismael Martín Herrera
+ * @author Alberto Zarza Martín
+ * @email alu0101397375@ull.edu.es
+ * @date 26/03/2023
+ */
+
 import * as inquirer from 'inquirer';
 import { Grupo } from '../group/classGroup';
 import { jsonGroupCollection } from '../group/jsongroup-collection';
@@ -6,7 +19,7 @@ import { jsonGroupCollection } from '../group/jsongroup-collection';
 const prompt = inquirer.createPromptModule();
 
 
-export function pruebaInquirerGroups(groupCollection: jsonGroupCollection) {
+export function InquirerGroups(groupCollection: jsonGroupCollection) {
 
   prompt([
     {

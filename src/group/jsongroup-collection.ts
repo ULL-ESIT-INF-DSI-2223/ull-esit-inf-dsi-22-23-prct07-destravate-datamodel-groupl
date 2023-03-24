@@ -30,7 +30,6 @@ export class jsonGroupCollection extends groupCollection {
     if (this.database.has("groups").value())  { // If the database has already been initialized
       
       const dbItems = this.database.get("groups").value();
-      console.log(dbItems);
       // Initialize the map with the data from the database
       dbItems.forEach(item => this.groupMap.set(item.id_, new Grupo(item.id_, item.nombre_, item.participantesGrupo_, item.estadisticaGrupalEntrenamiento_, item.clasificacionUsuario_, item.idRutasFavorita_, item.todasRutasUsuarios_)));
       // Initialize the nextId with the highest id in the database + 1

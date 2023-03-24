@@ -61,6 +61,11 @@ export class jsonUserCollection extends userCollection {
     return result;
   }
 
+  // MÉTODO AÑADIDO
+  getAllUsers(): User[] {
+    const result = this.userMap.values();
+    return Array.from(result);
+  }
 
   orderUsersAlfabeticallAsc() {
     const result = super.orderUsersAlfabeticallAsc();

@@ -1,3 +1,16 @@
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Asignatura: Desarrollo de Sistemas Informáticos
+ * Curso: 3º
+ * Práctica 7: Destravate
+ * @author Ismael Martín Herrera
+ * @author Alberto Zarza Martín
+ * @email alu0101397375@ull.edu.es
+ * @date 26/03/2023
+ */
+
 import * as inquirer from 'inquirer';
 import { User } from '../user/classUser';
 import { jsonUserCollection } from '../user/jsonuser-collection';
@@ -13,7 +26,7 @@ Alfabéticamente por nombre del usuario, ascendente y descendente.
 Por cantidad de KM realizados (ascendente y descendentemente) en función de la semana actual, mes o año.
 */
 
-export function pruebaInquirerUsers(userCollection: jsonUserCollection) {
+export function InquirerUsers(userCollection: jsonUserCollection) {
 
   prompt([
     {
@@ -90,18 +103,18 @@ export function pruebaInquirerUsers(userCollection: jsonUserCollection) {
 }
 
 
-const jsonusercollection1 = new jsonUserCollection([]);
+// const jsonusercollection1 = new jsonUserCollection([]);
 
-const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+// const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 
-jsonusercollection1.addUser(user1);
+// jsonusercollection1.addUser(user1);
 
-const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+// const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 
-jsonusercollection1.addUser(user2);
+// jsonusercollection1.addUser(user2);
 
-const user3 = new User( jsonusercollection1.getNextId(), "Alberto", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+// const user3 = new User( jsonusercollection1.getNextId(), "Alberto", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 
-jsonusercollection1.addUser(user3);
+// jsonusercollection1.addUser(user3);
 
-pruebaInquirerUsers(jsonusercollection1);
+// pruebaInquirerUsers(jsonusercollection1);

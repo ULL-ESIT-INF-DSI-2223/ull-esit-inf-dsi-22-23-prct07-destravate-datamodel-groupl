@@ -15,6 +15,7 @@ import { Actividad } from "../route/classRoute";
 
 /**
  * Tipo que permite determinar las estadísticas de cantidad de km y desnivel total por día, mes y año actual
+ * [km, desnivel]
  */
 export type stats = [[number, number], [number, number], [number, number]];
 
