@@ -1,6 +1,19 @@
+/**
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Grado en Ingeniería Informática
+ * Asignatura: Desarrollo de Sistemas Informáticos
+ * Curso: 3º
+ * Práctica 7: Destravate
+ * @author Ismael Martín Herrera
+ * @author Alberto Zarza Martín
+ * @email alu0101397375@ull.edu.es
+ * @date 26/03/2023
+ */
+
 import * as inquirer from 'inquirer';
 import { Retos } from '../retos/classRetos';
-import { jsonRetosCollection } from '../retos/retos-collection';
+import { jsonRetosCollection } from '../retos/jsonretos-collection';
 
 //funcion prueba inquirer
 const prompt = inquirer.createPromptModule();
@@ -14,7 +27,7 @@ Por cantidad de KM que se deben realizar, ascendente y descendente.
 Por la cantidad de usuarios que lo están realizando, ascendente y descendente.
 */
 
-export function pruebaInquirerRetos(restosCollection: jsonRetosCollection) {
+export function InquirerRetos(restosCollection: jsonRetosCollection) {
 
   prompt([
     {
@@ -35,27 +48,27 @@ export function pruebaInquirerRetos(restosCollection: jsonRetosCollection) {
 
     if (respuesta.orden == 'Alfabeticamente') {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(restosCollection.orderAlfabeticallRetosAsc());
+        console.table(restosCollection.orderAlfabeticallRetosAsc());
       }
       else {
-        console.log(restosCollection.orderAlfabeticallRetosDesc());
+        console.table(restosCollection.orderAlfabeticallRetosDesc());
       }
     }
     else if (respuesta.orden == 'Por KM') {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(restosCollection.orderDistanceAsc());
+        console.table(restosCollection.orderDistanceAsc());
       }
       else {
-        console.log(restosCollection.orderDistanceDesc());
+        console.table(restosCollection.orderDistanceDesc());
       }
     }
 
     else {
       if (respuesta.tipo == 'Ascendente') {
-        console.log(restosCollection.orderCantidadUsuariosAsc());
+        console.table(restosCollection.orderCantidadUsuariosAsc());
       }
       else {
-        console.log(restosCollection.orderCantidadUsuariosDesc());
+        console.table(restosCollection.orderCantidadUsuariosDesc());
       }
     }
     
@@ -63,12 +76,5 @@ export function pruebaInquirerRetos(restosCollection: jsonRetosCollection) {
 }
 
 
-const jsonretos1 = new jsonRetosCollection([]);
-const reto1 = new Retos(jsonretos1.getNextId(), "Reto 7", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
-jsonretos1.addReto(reto1);
-const reto2 = new Retos(jsonretos1.getNextId(), "Reto 8", [1,2,3,4,5,6,7,8,9,10], "bicicleta", 10, [1,2,3,4,5,6,7,8,9,10]);
-jsonretos1.addReto(reto2);
-
-pruebaInquirerRetos(jsonretos1);
 
 
