@@ -259,6 +259,12 @@ export class Gestor {
       },
       {
         type: 'input',
+        name: 'idUser',
+        message: 'Introduce tu id'
+
+      },
+      {
+        type: 'input',
         name: 'nombreGrupo',
         message: 'Introduce el nombre del grupo',
         when: (answers) => answers.crearGrupo
@@ -267,22 +273,44 @@ export class Gestor {
     ]) .then((answers) => {
       if (answers.crearGrupo) {
         const id = this.groupCollection.getNextId();
-        this.groupCollection.addGroup(new Grupo(id ,  answers.nombreGrupo, [], [[0,0],[0,0],[0,0]], [], [], []) );
-      
+        const newGroup =new Grupo(id ,  answers.nombreGrupo, [], [[0,0],[0,0],[0,0]], [], [], []);
+        newGroup.setCreadorSystem(false);
+        newGroup.setidCreator(Number(answers.idUser));
+        this.groupCollection.addGroup(newGroup);
+             
       }
     });
-
-
-
-
-    
-      
-        
-  // }
-  
   }
+    ereaseGroup() {
 
-}
+      const prompt = inquirer.createPromptModule();
+      prompt([
+        {
+          type: 'confirm',
+          name: 'borrarGrupo',
+          message: '¿Quieres borrar un grupo?',
+          default: false
+        },
+
+        {
+          type: 'input',
+          name: 'idGrupo',
+          message: 'Introduce el id del grupo a borrar',
+          when: (answers) => answers.borrarGrupo
+        }
+
+      ]) .then((answers) => {
+
+        if (answers.borrarGrupo) {
+          if (this.groupCollection.getGroup(Number(answers.idGrupo)) !== undefined) {
+            if (this.groupCollection.getGroup(Number(answers.idGrupo))?.CreatorSystem === false) {
+              this.groupCollection.ereaseGroup(Number(answers.idGrupo));
+            }
+          }
+        }
+      });
+    }
+  }
 
 const gestor = new Gestor();
 //gestor.registrarSistema();

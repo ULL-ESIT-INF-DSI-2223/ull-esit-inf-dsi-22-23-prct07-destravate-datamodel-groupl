@@ -24,6 +24,7 @@ export class Grupo {
  private idRutasFavorita_: number[];
  private todasRutasUsuarios_: number[];
  private creator_: boolean;
+ private idCreator_: number;
 
 
 
@@ -38,6 +39,8 @@ export class Grupo {
     this.idRutasFavorita_ = idRutasFavoritas;
     this.todasRutasUsuarios_ = todasRutasUsuarios;
     this.creator_ = true;
+    this.idCreator_ = id;
+
     
   }
 
@@ -58,11 +61,35 @@ export class Grupo {
     return this.nombre_;
   }
 
-  get Creator(): boolean {
+  /**
+   * @description Devuelve el id del creador del grupo
+   */
+  get IdCreator(): number {
+    return this.idCreator_;
+  }
+
+  /**
+   * 
+   * @param id  Id del creador del grupo
+   */
+  setidCreator(id: number) {
+    this.idCreator_ = id;
+  }
+
+  /**
+   * @description Devuelve las rutas favoritas del grupo
+   * @returns {number[]}
+   *  */
+  get CreatorSystem(): boolean {
     return this.creator_;
   }
 
-  setCreador(creator: boolean) {
+  /**
+   * 
+   * @param creator  Si el usuario es el creador del grupo
+   * 
+   * */
+  setCreadorSystem(creator: boolean) {
     this.creator_ = creator;
   }
 
