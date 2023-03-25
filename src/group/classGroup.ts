@@ -23,6 +23,7 @@ export class Grupo {
  private clasificacionUsuario_: number[];
  private idRutasFavorita_: number[];
  private todasRutasUsuarios_: number[];
+ private creator_: boolean;
 
 
 
@@ -36,6 +37,7 @@ export class Grupo {
     this.clasificacionUsuario_ = clasificacionUsuario;
     this.idRutasFavorita_ = idRutasFavoritas;
     this.todasRutasUsuarios_ = todasRutasUsuarios;
+    this.creator_ = true;
     
   }
 
@@ -54,6 +56,14 @@ export class Grupo {
    */
   get Nombre(): string {
     return this.nombre_;
+  }
+
+  get Creator(): boolean {
+    return this.creator_;
+  }
+
+  setCreador(creator: boolean) {
+    this.creator_ = creator;
   }
 
   /**

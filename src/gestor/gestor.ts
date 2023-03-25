@@ -21,6 +21,7 @@ import { InquirerRoutes } from '../funcionesInquirer/promptRoutes';
 import { InquirerGroups } from '../funcionesInquirer/promptGroup';
 import { groupCollection } from '../group/group-collection';
 import { Grupo } from '../group/classGroup';
+import { EstadisticasEntrenamiento } from '../group/classGroup';
 
 
 export class Gestor {
@@ -235,49 +236,54 @@ export class Gestor {
     prompt([
       {
         type: 'confirm',
-        name: 'mostargrupo',
+        name: 'vergrupo',
         message: '¿Quieres ver los grupos?',
         default: false
       }
     ]) .then((answers) => {
-      if (answers.mostargrupo) {
+      if (answers.vergrupo) {
         console.log("Grupos del sistema: ");
         InquirerGroups(this.groupCollection);
       }
     });
   }
 
-  // crearGrupo() {
-  //   const prompt = inquirer.createPromptModule();
-  //   prompt([
-  //     {
-  //       type: 'confirm',
-  //       name: 'crearGrupo',
-  //       message: '¿Quieres crear un grupo?',
-  //       default: false
-  //     },
-  //     {
-  //       type: 'input',
-  //       name: 'nombreGrupo',
-  //       message: 'Introduce el nombre del grupo',
-  //       when: (answers) => answers.crearGrupo
-  //     },
-  //   ]) .then((answers) => {
-  //     if (answers.crearGrupo) {
-  //       this.groupCollection.addGroup(new Group(groupCollection answers.nombreGrupo, []));
-  //     }
-  //   } );
+  crearGrupo() {
+    const prompt = inquirer.createPromptModule();
+    prompt([
+      {
+        type: 'confirm',
+        name: 'crearGrupo',
+        message: '¿Quieres crear un grupo?',
+        default: false
+      },
+      {
+        type: 'input',
+        name: 'nombreGrupo',
+        message: 'Introduce el nombre del grupo',
+        when: (answers) => answers.crearGrupo
+      }
+
+    ]) .then((answers) => {
+      if (answers.crearGrupo) {
+        const id = this.groupCollection.getNextId();
+        this.groupCollection.addGroup(new Grupo(id ,  answers.nombreGrupo, [], [[0,0],[0,0],[0,0]], [], [], []) );
+      
+      }
+    });
+
+
+
+
     
       
         
   // }
   
+  }
+
 }
-
-
 
 const gestor = new Gestor();
 //gestor.registrarSistema();
 //gestor.mostrarRutas();
-//gestor.visualizarGrupos();
-gestor.unirseGrupo();
