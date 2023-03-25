@@ -51,10 +51,16 @@ export class jsonGroupCollection extends groupCollection {
   getNextId() {
     return this.nextId;
   }
+
   addGroup(group: Grupo): void {
     const result = super.addGroup(group);
     this.storeTasks();
     return result;
+  }
+
+  addExistedGroup(group: Grupo){
+    super.addExistedGroup(group);
+    this.storeTasks();
   }
 
   ereaseGroup(id: number): void {
@@ -64,9 +70,8 @@ export class jsonGroupCollection extends groupCollection {
   }
 
   changeGroupById(id: number, group: Grupo): void {
-    const result = super.changeGroupByID(id, group);  
-    this.storeTasks();
-    return result;
+    this.ereaseGroup(id);
+    this.addExistedGroup(group);
   }
 
 

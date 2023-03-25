@@ -103,11 +103,10 @@ export function InquirerUsers(userCollection: jsonUserCollection) {
 }
 
 
-// const jsonusercollection1 = new jsonUserCollection([]);
+const jsonusercollection1 = new jsonUserCollection([]);
 
-// const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-
-// jsonusercollection1.addUser(user1);
+const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+jsonusercollection1.addUser(user1);
 
 // const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 

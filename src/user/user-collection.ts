@@ -33,6 +33,10 @@ export class userCollection {
     return this.userMap.get(id);
   }
 
+  getAllUsers() {
+    return Array.from(this.userMap.values());
+  }
+
   orderUsersAlfabeticallAsc() {
     const users = Array.from(this.userMap.values());
     users.sort((a, b) => a.userName.localeCompare(b.userName));
@@ -87,11 +91,7 @@ export class userCollection {
 
 }
 
-// const jsonusercollection1 = new jsonUserCollection([]);
 
-// const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-
-// jsonusercollection1.addUser(user1);
 
 // const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 

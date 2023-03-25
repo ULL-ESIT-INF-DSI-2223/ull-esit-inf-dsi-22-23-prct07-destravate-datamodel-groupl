@@ -33,6 +33,9 @@ export class routeCollection {
     return this.routeMap.get(id);
   }
 
+  getAllRoutes() {
+    return Array.from(this.routeMap.values());
+  }
 
   orderRoutesAlfabeticallAsc() {
     const routes = Array.from(this.routeMap.values());

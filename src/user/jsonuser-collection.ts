@@ -61,10 +61,8 @@ export class jsonUserCollection extends userCollection {
     return result;
   }
 
-  // MÉTODO AÑADIDO
   getAllUsers(): User[] {
-    const result = this.userMap.values();
-    return Array.from(result);
+    return super.getAllUsers();
   }
 
   orderUsersAlfabeticallAsc() {
@@ -109,3 +107,9 @@ export class jsonUserCollection extends userCollection {
 
   
 } 
+
+// const jsonusercollection1 = new jsonUserCollection([]);
+
+// const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
+
+// jsonusercollection1.addUser(user1);

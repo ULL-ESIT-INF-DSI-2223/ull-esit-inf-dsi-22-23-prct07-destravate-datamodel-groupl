@@ -58,6 +58,10 @@ export class jsonRouteCollection extends routeCollection {
     return result;
   }
 
+  getAllRoutes(){
+    return super.getAllRoutes();
+  }
+
 
   orderRoutesAlfabeticallAsc(): Route[] {
     const result = super.orderRoutesAlfabeticallAsc();

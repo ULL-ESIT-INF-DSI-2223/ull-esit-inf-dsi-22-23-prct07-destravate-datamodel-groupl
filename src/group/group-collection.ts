@@ -29,6 +29,11 @@ export class groupCollection {
     this.groupMap.set(this.nextId++, group);
   }
 
+  addExistedGroup(group: Grupo): void {
+    this.groupMap.set(group.Id, group);
+  }
+
+
   ereaseGroup(id: number): void {
     this.groupMap.delete(id);
   }

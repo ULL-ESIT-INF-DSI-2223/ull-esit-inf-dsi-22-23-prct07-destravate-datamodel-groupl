@@ -17,6 +17,10 @@ import { jsonRouteCollection } from '../route/jsonroute-collection';
 import { jsonRetosCollection } from '../retos/jsonretos-collection';
 import { jsonUserCollection } from '../user/jsonuser-collection';
 import { stats } from '../user/classUser';
+import { InquirerRoutes } from '../funcionesInquirer/promptRoutes';
+import { InquirerGroups } from '../funcionesInquirer/promptGroup';
+import { groupCollection } from '../group/group-collection';
+import { Grupo } from '../group/classGroup';
 
 
 export class Gestor {
@@ -24,7 +28,6 @@ export class Gestor {
   private routeCollection: jsonRouteCollection;
   private retosCollection: jsonRetosCollection;
   private userCollection: jsonUserCollection;
-  private prompt = inquirer.createPromptModule();
 
   constructor() {
     this.groupCollection = new jsonGroupCollection();
@@ -33,14 +36,17 @@ export class Gestor {
     this.userCollection =  new jsonUserCollection();
   }
 
+  // propiedades temporales del usuario
+  private nombreUsuario = "";
+  private actividadesUsuario: string[] = [];
+  private amigos: number[] = [-1];
+  private estadisticas: stats = [[0,0],[0,0],[0,0]];
+
   
   registrarSistema() {
-    let nombreUsuario = "";
-    const actividadesUsuario = [];
-    let amigos = [];
-    let estadisticas: stats = [[0,0],[0,0],[0,0]];
+    const prompt = inquirer.createPromptModule();
 
-    this.prompt([
+    prompt([
       {
         type: 'input',
         name: "nombre",
@@ -54,29 +60,26 @@ export class Gestor {
         choices: ['Bicicleta', 'Correr'],
       }, 
     ]) .then((answers) => {
-      nombreUsuario = answers.nombre;
-      console.log(nombreUsuario);
+      this.nombreUsuario = answers.nombre;
+      console.log(this.nombreUsuario);
       console.log(answers.actividades);
       if (answers.actividades.includes('Bicicleta') && answers.actividades.includes('Correr')) {
-        actividadesUsuario.push("bicicleta");
-        actividadesUsuario.push("correr");
+        this.actividadesUsuario.push("bicicleta");
+        this.actividadesUsuario.push("correr");
       } else if (answers.actividades.includes('Bicicleta')) {
-        actividadesUsuario.push("bicicleta");
+        this.actividadesUsuario.push("bicicleta");
       } else {
-        actividadesUsuario.push("correr");
+        this.actividadesUsuario.push("correr");
       }
-      amigos = this.añadirAmigosUsuario();
-      estadisticas = this.añadirEstadisticasUsuario();
+      this.añadirAmigosUsuario();
     })
-
-    
   }
 
   añadirAmigosUsuario() {
-    //const prompt = inquirer.createPromptModule();
+    const prompt = inquirer.createPromptModule();
     let amigos: number[] = [];
   
-    this.prompt([
+    prompt([
       {
         type: 'confirm',
         name: 'añadeAmigos',
@@ -88,7 +91,7 @@ export class Gestor {
         console.log("Usuarios del sistema: ");
         console.table(this.userCollection.getAllUsers());
 
-        this.prompt([
+        prompt([
           {
             type: 'input',
             name: 'idAmigos',
@@ -96,20 +99,18 @@ export class Gestor {
           }
         ]).then((answers) => {
           amigos = answers.idAmigos.split(",").map(Number);
-        }
-        )
-
+          this.amigos = amigos;
+          this.añadirEstadisticasUsuario();
+        })
       }
     })
-
-    return amigos;
   }
 
   añadirEstadisticasUsuario() {
-    //const prompt = inquirer.createPromptModule();
+    const prompt = inquirer.createPromptModule();
     let estadisticas: stats = [[0,0],[0,0],[0,0]];
 
-    this.prompt([
+    prompt([
       {
         type: 'confirm',
         name: 'añadeEstadisticas',
@@ -161,11 +162,122 @@ export class Gestor {
       const desnivelAnuales = answers.desnivelAnuales;
       estadisticas = [[kmSemanales, desnivelSemanales], [kmMensuales, desnivelMensuales], [kmAnuales, desnivelAnuales]];
     })
-    return estadisticas;
+    this.estadisticas = estadisticas;
+  }
+  
+  mostrarRutas() {
+    const prompt = inquirer.createPromptModule();
+
+    prompt([
+      {
+        type: 'confirm',
+        name: 'mostarRutas',
+        message: '¿Quieres ver la rutas existentes?',
+        default: false
+      }
+
+    ]) .then((answers) => {
+      if (answers.mostarRutas) {
+        console.log("Rutas del sistema: ");
+        InquirerRoutes(this.routeCollection);
+      }
+    });
   }
 
+  unirseGrupo() {
+    const prompt = inquirer.createPromptModule();
 
+    prompt([
+      {
+        type: 'confirm',
+        name: 'mostargrupo',
+        message: '¿Quieres unirse a un grupo?',
+        default: false
+      },
+      {
+        type: 'input',
+        name: 'idUser',
+        message: 'Introduce tu id'
+      },
+      {
+        type: 'input',
+        name: 'idGrupo',
+        message: 'Introduce el id del grupo',
+        when: (answers) => answers.idUser
+      }
+
+    ]) .then((answers) => {
+        if (this.userCollection.getUser(Number(answers.idUser)) !== undefined) {
+          if (this.groupCollection.getGroup(Number(answers.idGrupo)) !== undefined) {
+            let newParticipante = 0;
+            let allParticipantes: number[] = [];
+            newParticipante = Number(answers.idUser);
+            allParticipantes = this.groupCollection.getGroup(Number(answers.idGrupo))?.ParticipantesGrupo as number[];
+            allParticipantes.push(newParticipante);
+            const modificado = this.groupCollection.getGroup(Number(answers.idGrupo));
+            modificado?.setParticipantesGrupo(allParticipantes);
+            this.groupCollection.changeGroupById(Number(answers.idGrupo), modificado as Grupo);
+
+          }
+          else {
+            console.log("El grupo no existe");
+          }
+        }
+        else {
+          console.log("El usuario no existe");
+        }
+    });
+  }
+
+  visualizarGrupos() {
+    const prompt = inquirer.createPromptModule();
+
+    prompt([
+      {
+        type: 'confirm',
+        name: 'mostargrupo',
+        message: '¿Quieres ver los grupos?',
+        default: false
+      }
+    ]) .then((answers) => {
+      if (answers.mostargrupo) {
+        console.log("Grupos del sistema: ");
+        InquirerGroups(this.groupCollection);
+      }
+    });
+  }
+
+  // crearGrupo() {
+  //   const prompt = inquirer.createPromptModule();
+  //   prompt([
+  //     {
+  //       type: 'confirm',
+  //       name: 'crearGrupo',
+  //       message: '¿Quieres crear un grupo?',
+  //       default: false
+  //     },
+  //     {
+  //       type: 'input',
+  //       name: 'nombreGrupo',
+  //       message: 'Introduce el nombre del grupo',
+  //       when: (answers) => answers.crearGrupo
+  //     },
+  //   ]) .then((answers) => {
+  //     if (answers.crearGrupo) {
+  //       this.groupCollection.addGroup(new Group(groupCollection answers.nombreGrupo, []));
+  //     }
+  //   } );
+    
+      
+        
+  // }
+  
 }
 
+
+
 const gestor = new Gestor();
-gestor.registrarSistema();
+//gestor.registrarSistema();
+//gestor.mostrarRutas();
+//gestor.visualizarGrupos();
+gestor.unirseGrupo();
