@@ -13,10 +13,23 @@
 
 import * as inquirer from 'inquirer';
 import { jsonRouteCollection } from '../route/jsonroute-collection';
+import { MenuPrincipal } from './mainPrompt';
 
 const prompt = inquirer.createPromptModule();
 
-
+/**
+ *  Función que muestra las opciones de ordenación de rutas
+ * @param routeCollection Colección de rutas
+ * @returns void
+ * 
+ * - 1.0.0: Versión inicial
+ * - ordenar por nombre
+ * - ordenar por número de usuarios
+ * - ordenar por la longitud de ruta
+ * - ordenar por la calificación media
+ * - ordenar por actividad (correr o ciclismo)
+ * 
+ */
 export function InquirerRoutes(routeCollection: jsonRouteCollection) {
   prompt([
     {
@@ -65,5 +78,6 @@ export function InquirerRoutes(routeCollection: jsonRouteCollection) {
         console.table(routeCollection.orderRoutesByActivityDesc());
       }
     }
+    MenuPrincipal();
   });
 }

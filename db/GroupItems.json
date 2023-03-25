@@ -36,7 +36,9 @@
         1,
         2,
         3
-      ]
+      ],
+      "creator_": true,
+      "idCreator_": 0
     },
     {
       "id_": 3,
@@ -74,7 +76,9 @@
         1,
         2,
         3
-      ]
+      ],
+      "creator_": true,
+      "idCreator_": 0
     },
     {
       "id_": 1,
@@ -83,7 +87,8 @@
         2,
         3,
         1,
-        4
+        4,
+        5
       ],
       "estadisticaGrupalEntrenamiento_": [
         [
@@ -113,7 +118,35 @@
         1,
         2,
         3
-      ]
+      ],
+      "creator_": true,
+      "idCreator_": 0
+    },
+    {
+      "id_": 4,
+      "nombre_": "grupodePancho",
+      "participantesGrupo_": [
+        5
+      ],
+      "estadisticaGrupalEntrenamiento_": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "clasificacionUsuario_": [],
+      "idRutasFavorita_": [],
+      "todasRutasUsuarios_": [],
+      "creator_": false,
+      "idCreator_": "5"
     }
   ]
 }

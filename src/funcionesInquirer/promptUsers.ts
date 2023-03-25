@@ -14,17 +14,22 @@
 import * as inquirer from 'inquirer';
 import { User } from '../user/classUser';
 import { jsonUserCollection } from '../user/jsonuser-collection';
+import { MenuPrincipal } from './mainPrompt';
+import { jsonRetosCollection } from '../retos/jsonretos-collection';
+import { jsonRouteCollection } from '../route/jsonroute-collection';
+import { stats } from '../user/classUser';
 
 //funcion prueba inquirer
 const prompt = inquirer.createPromptModule();
 
-
-// funcion que permite 
-/*
-Usuarios:
-Alfabéticamente por nombre del usuario, ascendente y descendente.
-Por cantidad de KM realizados (ascendente y descendentemente) en función de la semana actual, mes o año.
-*/
+/**
+ * Función que muestra un menú con las opciones de los usuarios
+ * @param userCollection
+ * @returns
+ * Usuarios:
+ * Alfabéticamente por nombre del usuario, ascendente y descendente.
+ * Por cantidad de KM realizados (ascendente y descendentemente) en función de la semana actual, mes o año.
+ */
 
 export function InquirerUsers(userCollection: jsonUserCollection) {
 
@@ -99,14 +104,172 @@ export function InquirerUsers(userCollection: jsonUserCollection) {
         }
       }
     }
+    MenuPrincipal();
   });
 }
 
+export function InquirerAddFriend(userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
 
-const jsonusercollection1 = new jsonUserCollection([]);
+  prompt([
+    {
+      type: 'input',
+      name: 'idAmigo',
+      message: '¿Cuál es el id de tu amigo?'
+    }
+  ]).then((answer) => {
+    if (userCollection.getUser(Number(answer.idAmigo)) !== undefined) {
+      const usuario = userCollection.getUser(idUser);
+      usuario?.setFriend(Number(answer.idAmigo));
+      userCollection.changeUserByID(idUser, usuario as User);
+      console.log('Amigo añadido correctamente');
+    } else {
+      console.log('El usuario no existe');
+    }
+    MenuPrincipal();
+  });
+}
 
-const user1 = new User( jsonusercollection1.getNextId(), "Ismael", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-jsonusercollection1.addUser(user1);
+export function InquirerAddChallenge(userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
+  const jsonretos = new jsonRetosCollection();
+  prompt([
+    {
+      type: 'input',
+      name: 'idReto',
+      message: '¿Cuál es el id del reto?'
+    }
+  ]).then((answer) => {
+    if (jsonretos.getReto(Number(answer.idReto)) !== undefined) {
+      const usuario = userCollection.getUser(idUser);
+      usuario?.setChallenge(Number(answer.idReto));
+      userCollection.changeUserByID(idUser, usuario as User)
+      console.log('Reto añadido correctamente');
+    } else {
+      console.log('El reto no existe');
+    }
+    MenuPrincipal();
+  });
+}
+
+export function InquirerAddFavoriteRoute(userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
+  const jsonrutas = new jsonRouteCollection();
+  prompt([
+    {
+      type: 'input',
+      name: 'idRuta',
+      message: '¿Cuál es el id de la ruta?'
+    }
+  ]).then((answer) => {
+    if(jsonrutas.getRoute(Number(answer.idRuta)) !== undefined) {
+      const usuario = userCollection.getUser(idUser);
+      usuario?.setFavouriteRoute(Number(answer.idRuta));
+      userCollection.changeUserByID(idUser, usuario as User)
+      console.log('Ruta añadida correctamente');
+    } else {
+      console.log('La ruta no existe');
+    }
+    MenuPrincipal();
+  });
+}
+
+export function InquirerUpdateStatistic(userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
+
+    prompt([
+      {
+        type: 'confirm',
+        name: 'añadeEstadisticas',
+        message: '¿Quieres actualizar tus estadísticas?',
+        default: false
+      },
+      {
+        type: 'input',
+        name: 'kmSemanales',
+        message: 'Introduce los km semanales',
+        when: (answers) => answers.añadeEstadisticas
+      },
+      {
+        type: 'input',
+        name: 'desnivelSemanales',
+        message: 'Introduce los desniveles semanales',
+        when: (answers) => answers.añadeEstadisticas
+      },
+      {
+        type: 'input',
+        name: 'kmMensuales',
+        message: 'Introduce los km mensuales',
+        when: (answers) => answers.añadeEstadisticas
+      },
+      {
+        type: 'input',
+        name: 'desnivelMensuales',
+        message: 'Introduce los desniveles mensuales',
+        when: (answers) => answers.añadeEstadisticas
+      },
+      {
+        type: 'input',
+        name: 'kmAnuales',
+        message: 'Introduce los km anuales',
+        when: (answers) => answers.añadeEstadisticas
+      },
+      {
+        type: 'input',
+        name: 'desnivelAnuales',
+        message: 'Introduce los desniveles anuales',
+        when: (answers) => answers.añadeEstadisticas
+      },
+    ]) .then((answers) => {
+      const kmSemanales = answers.kmSemanales;
+      const desnivelSemanales = answers.desnivelSemanales;
+      const kmMensuales = answers.kmMensuales;
+      const desnivelMensuales = answers.desnivelMensuales;
+      const kmAnuales = answers.kmAnuales;
+      const desnivelAnuales = answers.desnivelAnuales;
+      const usuario = userCollection.getUser(idUser);
+      usuario?.setStats([[kmSemanales, desnivelSemanales], [kmMensuales, desnivelMensuales], [kmAnuales, desnivelAnuales]]);
+      userCollection.changeUserByID(idUser, usuario as User)
+      console.log('Estadísticas actualizadas correctamente');
+      MenuPrincipal();
+    })
+}
+
+
+
+export function InquirerGestionarCuenta (userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
+
+  prompt([
+    {
+      type: 'list',
+      name: 'opciones',
+      message: '¿Qué quieres hacer sobre tu cuenta de usuario?',
+      choices: ['Añadir amigo', 'Añadir reto', 'Añadir ruta favorita', 'Actualizar estadística', 'Añadir ruta al histórico']
+    }
+  ]).then((respuesta) => {
+    switch (respuesta.opciones) {
+      case 'Añadir amigo':
+        InquirerAddFriend(userCollection, idUser);
+        break;
+      case 'Añadir reto':
+        InquirerAddChallenge(userCollection, idUser);
+        break;
+      case 'Añadir ruta favorita':
+        InquirerAddFavoriteRoute(userCollection, idUser);
+        break;
+      case 'Actualizar estadística':
+        InquirerUpdateStatistic(userCollection, idUser);
+        break;
+      case 'Añadir ruta al histórico':
+        //InquirerAddHistoricRoute(userCollection, idUser);
+        break;
+    }
+  }
+  );
+}
+
+
 
 // const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
 

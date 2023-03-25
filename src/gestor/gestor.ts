@@ -22,8 +22,13 @@ import { InquirerGroups } from '../funcionesInquirer/promptGroup';
 import { groupCollection } from '../group/group-collection';
 import { Grupo } from '../group/classGroup';
 import { EstadisticasEntrenamiento } from '../group/classGroup';
+import { User } from '../user/classUser';
+import { Actividad } from '../route/classRoute';
+import { MenuPrincipal } from '../funcionesInquirer/mainPrompt';
 
-
+/**
+ * @
+ */
 export class Gestor {
   private groupCollection: jsonGroupCollection;
   private routeCollection: jsonRouteCollection;
@@ -39,11 +44,14 @@ export class Gestor {
 
   // propiedades temporales del usuario
   private nombreUsuario = "";
-  private actividadesUsuario: string[] = [];
+  private actividadesUsuario: Actividad[] = [];
   private amigos: number[] = [-1];
   private estadisticas: stats = [[0,0],[0,0],[0,0]];
 
-  
+  /**
+   * Metodo para registrar un usuario en el sistema
+   * @returns 
+   */
   registrarSistema() {
     const prompt = inquirer.createPromptModule();
 
@@ -76,6 +84,10 @@ export class Gestor {
     })
   }
 
+  /**
+   * Metodo para añadir amigos a un usuario
+   * @returns
+   */
   añadirAmigosUsuario() {
     const prompt = inquirer.createPromptModule();
     let amigos: number[] = [];
@@ -103,10 +115,15 @@ export class Gestor {
           this.amigos = amigos;
           this.añadirEstadisticasUsuario();
         })
+      } else {
+        this.añadirEstadisticasUsuario();
       }
     })
   }
 
+  /**
+   * Metodo para añadir estadisticas a un usuario
+   */
   añadirEstadisticasUsuario() {
     const prompt = inquirer.createPromptModule();
     let estadisticas: stats = [[0,0],[0,0],[0,0]];
@@ -164,8 +181,13 @@ export class Gestor {
       estadisticas = [[kmSemanales, desnivelSemanales], [kmMensuales, desnivelMensuales], [kmAnuales, desnivelAnuales]];
     })
     this.estadisticas = estadisticas;
+    this.userCollection.addUser(new User(this.userCollection.getNextId(), this.nombreUsuario, this.actividadesUsuario, this.amigos, [],  this.estadisticas, [], [], []));
   }
   
+  /**
+   * Metodo para mostrar las rutas del sistema
+   * @returns 
+   */
   mostrarRutas() {
     const prompt = inquirer.createPromptModule();
 
@@ -185,40 +207,39 @@ export class Gestor {
     });
   }
 
-  unirseGrupo() {
+  /**
+   * Metodo para crear un grupo
+   * @returns void
+   */
+  unirseGrupo(idUsuario: number) {
     const prompt = inquirer.createPromptModule();
 
     prompt([
       {
         type: 'confirm',
-        name: 'mostargrupo',
+        name: 'unirseGrupo',
         message: '¿Quieres unirse a un grupo?',
         default: false
       },
       {
         type: 'input',
-        name: 'idUser',
-        message: 'Introduce tu id'
-      },
-      {
-        type: 'input',
         name: 'idGrupo',
         message: 'Introduce el id del grupo',
-        when: (answers) => answers.idUser
+        when: (answers) => answers.unirseGrupo
       }
 
     ]) .then((answers) => {
-        if (this.userCollection.getUser(Number(answers.idUser)) !== undefined) {
+        if (this.userCollection.getUser(idUsuario) !== undefined) {
           if (this.groupCollection.getGroup(Number(answers.idGrupo)) !== undefined) {
             let newParticipante = 0;
             let allParticipantes: number[] = [];
-            newParticipante = Number(answers.idUser);
+            newParticipante = idUsuario;
             allParticipantes = this.groupCollection.getGroup(Number(answers.idGrupo))?.ParticipantesGrupo as number[];
             allParticipantes.push(newParticipante);
             const modificado = this.groupCollection.getGroup(Number(answers.idGrupo));
             modificado?.setParticipantesGrupo(allParticipantes);
             this.groupCollection.changeGroupById(Number(answers.idGrupo), modificado as Grupo);
-
+            console.log("Te has unido al grupo");
           }
           else {
             console.log("El grupo no existe");
@@ -227,9 +248,14 @@ export class Gestor {
         else {
           console.log("El usuario no existe");
         }
+        MenuPrincipal();
     });
   }
 
+  /**
+   * Metodo para mostrar los grupos del sistema
+   * @returns void
+   */
   visualizarGrupos() {
     const prompt = inquirer.createPromptModule();
 
@@ -248,7 +274,11 @@ export class Gestor {
     });
   }
 
-  crearGrupo() {
+  /**
+   * Metodo para crear un grupo
+   * @returns void
+   */
+  crearGrupo(idUsuario: number) {
     const prompt = inquirer.createPromptModule();
     prompt([
       {
@@ -256,12 +286,6 @@ export class Gestor {
         name: 'crearGrupo',
         message: '¿Quieres crear un grupo?',
         default: false
-      },
-      {
-        type: 'input',
-        name: 'idUser',
-        message: 'Introduce tu id'
-
       },
       {
         type: 'input',
@@ -273,15 +297,20 @@ export class Gestor {
     ]) .then((answers) => {
       if (answers.crearGrupo) {
         const id = this.groupCollection.getNextId();
-        const newGroup =new Grupo(id ,  answers.nombreGrupo, [], [[0,0],[0,0],[0,0]], [], [], []);
-        newGroup.setCreadorSystem(false);
-        newGroup.setidCreator(Number(answers.idUser));
+        const newGroup =new Grupo(id ,  answers.nombreGrupo, [], [[0,0],[0,0],[0,0]], [], [], [], false, idUsuario);
+        // newGroup.setCreadorSystem(false);
+        // newGroup.setidCreator(Number(answers.idUser));
         this.groupCollection.addGroup(newGroup);
-             
+        console.log("Grupo creado");
       }
+      MenuPrincipal();   
     });
   }
-    ereaseGroup() {
+    /**
+     * Metodo para borrar un grupo
+     * @returns void
+     */
+    ereaseGroup(idUsuario: number) {
 
       const prompt = inquirer.createPromptModule();
       prompt([
@@ -303,10 +332,16 @@ export class Gestor {
 
         if (answers.borrarGrupo) {
           if (this.groupCollection.getGroup(Number(answers.idGrupo)) !== undefined) {
-            if (this.groupCollection.getGroup(Number(answers.idGrupo))?.CreatorSystem === false) {
+            if (this.groupCollection.getGroup(Number(answers.idGrupo))?.CreatorSystem === false && this.groupCollection.getGroup(Number(answers.idGrupo))?.IdCreator === idUsuario) {
               this.groupCollection.ereaseGroup(Number(answers.idGrupo));
+              console.log("Grupo borrado");
+            } else {
+              console.log("No puedes borrar el grupo, no eres el creador");
             }
+          } else {
+            console.log("El grupo no existe");
           }
+          MenuPrincipal();
         }
       });
     }
@@ -315,3 +350,6 @@ export class Gestor {
 const gestor = new Gestor();
 //gestor.registrarSistema();
 //gestor.mostrarRutas();
+//gestor.crearGrupo();
+//gestor.ereaseGroup();
+//gestor.visualizarGrupos();

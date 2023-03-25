@@ -14,8 +14,18 @@
 import * as inquirer from 'inquirer';
 import { Grupo } from '../group/classGroup';
 import { jsonGroupCollection } from '../group/jsongroup-collection';
+import { MenuPrincipal } from './mainPrompt';
 
-
+/**
+ * Función que muestra un menú de opciones para ordenar los grupos
+ * @param groupCollection Colección de grupos
+ * @returns
+ *  
+ * - Ordenar por nombre
+ * - Ordenar por KM
+ * - Ordenar por miembros
+ * 
+ */
 const prompt = inquirer.createPromptModule();
 
 
@@ -90,5 +100,6 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
         console.table(groupCollection.orderGroupByNumberMembersDESC());
       }
     }
+    MenuPrincipal();
   });
 }

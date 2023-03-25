@@ -103,6 +103,66 @@
       "favouriteRoutes_": [],
       "challenges_": [],
       "historic_": []
+    },
+    {
+      "id_": 5,
+      "userName_": "Pancho",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [
+        -1,
+        1,
+        2
+      ],
+      "groups_": [],
+      "stats_": [
+        [
+          "23",
+          "24"
+        ],
+        [
+          "34",
+          "45"
+        ],
+        [
+          "100",
+          "200"
+        ]
+      ],
+      "favouriteRoutes_": [
+        2
+      ],
+      "challenges_": [
+        2
+      ],
+      "historic_": []
+    },
+    {
+      "id_": 6,
+      "userName_": "Ismael",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [],
+      "groups_": [],
+      "stats_": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "favouriteRoutes_": [],
+      "challenges_": [],
+      "historic_": []
     }
   ]
 }

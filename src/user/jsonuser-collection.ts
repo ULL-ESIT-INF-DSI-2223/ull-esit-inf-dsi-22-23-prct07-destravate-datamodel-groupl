@@ -18,12 +18,21 @@ import * as FileSync from "lowdb/adapters/FileSync";
 import {stats} from "../user/classUser";
 import { userCollection } from "../user/user-collection";
 
-
+/**
+ * Esquema de la base de datos de usuarios
+ * 
+ * 
+ */
 type schemaType = {
   users: {  id_: number; userName_: string; activities_: Actividad[]; friends_: number[];  groups_: number[]; stats_: stats; favouriteRoutes_: number[]; challenges_: number[]; historic_: historic[];
   }[];
 };
 
+/**
+ * Clase que extiende de userCollection y que implementa la base de datos de usuarios
+ * 
+ * 
+ */
 export class jsonUserCollection extends userCollection {
 
   private database: lowdb.LowdbSync<schemaType>;
@@ -42,64 +51,119 @@ export class jsonUserCollection extends userCollection {
     }
   }
 
+  /**
+   * Método que guarda los usuarios en la base de datos
+   * 
+   * @param user 
+   */
   private storeTasks() {
     this.database.set("users", Array.from(this.userMap.values())).write();
   }
 
+  /**
+   * Método que devuelve el siguiente id
+   * @returns void
+   */
   getNextId() {
     return this.nextId;
   }
+
+  eraseUser(id: number): void {
+    super.eraseUser(id);
+    this.storeTasks();
+  }
+
+  changeUserByID(id: number, user: User): void {
+    super.changeUserByID(id, user);
+    this.storeTasks();
+  }
   
+  /**
+   * Método que añade un usuario a la base de datos
+   * 
+   */
   addUser(user: User) {
     const result = super.addUser(user);
     this.storeTasks();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   * 
+   */
   getUser(id: number): User | undefined{
     const result = super.getUser(id);
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   getAllUsers(): User[] {
     return super.getAllUsers();
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersAlfabeticallAsc() {
     const result = super.orderUsersAlfabeticallAsc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   * 
+   */
   orderUsersAlfabeticallDesc() {
     const result = super.orderUsersAlfabeticallDesc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersByKMDayAsc() {
     const result = super.orderUsersByKMDayAsc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersByKMDayDesc() {
     const result = super.orderUsersByKMDayDesc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersByKMMonthAsc() {
     const result = super.orderUsersByKMMonthAsc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersByKMMonthDesc() {
     const result = super.orderUsersByKMMonthDesc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersByKMYearAsc() {
     const result = super.orderUsersByKMYearAsc();
     return result;
   }
 
+  /**
+   * Método que elimina un usuario de la base de datos
+   */
   orderUsersByKMYearDesc() {
     const result = super.orderUsersByKMYearDesc();
     return result;

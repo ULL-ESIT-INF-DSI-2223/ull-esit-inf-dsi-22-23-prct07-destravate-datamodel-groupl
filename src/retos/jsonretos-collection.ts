@@ -17,8 +17,10 @@ import * as FileSync from "lowdb/adapters/FileSync";
 import { GeoLocalization } from "../route/classRoute";
 import  {Actividad} from '../route/classRoute';
 import { retosCollection } from "./retos-collection";
-
-
+/* 
+ * @param retosItems
+ * @returns void
+ */
 type schemaTypeRetos = {
   retos: {id: number; nombre: string; rutasRetos: number[]; tipoActividad: Actividad; kmTotales: number; idUsersRetos: number[]}[]
 };
@@ -41,45 +43,100 @@ export class jsonRetosCollection extends retosCollection {
     }
   }
 
+  /**
+   * Stores the tasks in the database
+   * @returns void
+   * 
+   */
   private storeTasks() {
     this.database.set("retos", Array.from(this.retosMap.values())).write();
   }
   
+  /**
+   * Returns the next id
+   * @returns number
+   * 
+   */
   getNextId() {
     return this.nextId;
   }
   
-
+  /**
+   * Adds a new reto to the collection
+   * @param reto
+   * @returns Retos
+   * 
+   */
   addReto(reto: Retos) {
     const result = super.addRetos(reto);
     this.storeTasks();
     return result;
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   * 
+   */
   getReto(id: number) {
     return super.getRetos(id);
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   * 
+   */
   orderAlfabeticallRetosAsc() {
     return super.orderAlfabeticallRetosAsc();
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   */
   orderAlfabeticallRetosDesc() {
     return super.orderAlfabeticallRetosDesc();
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   * 
+   */
   orderDistanceAsc() {
     return super.orderDistanceAsc();
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   * 
+   */
   orderDistanceDesc() {
     return super.orderDistanceDesc();
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   * 
+   */
   orderCantidadUsuariosAsc() {
     return super.orderCantidadUsuariosAsc();
   }
 
+  /**
+   * Deletes a reto from the collection
+   * @param id
+   * @returns Retos
+   */
   orderCantidadUsuariosDesc() {
     return super.orderCantidadUsuariosDesc();
   }

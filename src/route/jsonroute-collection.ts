@@ -39,75 +39,156 @@ export class jsonRouteCollection extends routeCollection {
     }
   }
 
+  /**
+   * Almacena las tareas en la base de datos
+   * @returns void
+   * 
+   */
   private storeTasks() {
     this.database.set("routes", [...this.routeMap.values()]).write();
   }
 
+  /**
+   * Devuelve el siguiente id de la base de datos
+   * @returns number
+   * 
+   */
   getNextId() {
     return this.nextId;
   }
   
+  /**
+   * Añade una ruta a la base de datos
+   * @param route
+   * @returns void
+   */
   addRoute(route: Route) {
     const result = super.addRoute(route);
     this.storeTasks();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   getRoute(id: number): Route | undefined{
     const result = super.getRoute(id);
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   */
   getAllRoutes(){
     return super.getAllRoutes();
   }
 
-
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   */
   orderRoutesAlfabeticallAsc(): Route[] {
     const result = super.orderRoutesAlfabeticallAsc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   orderRoutesAlfabeticallDesc(): Route[] {
     const result = super.orderRoutesAlfabeticallDesc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   amountUserAsc(): Route[] {
     const result = super.amountUserAsc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   */
   amountUserDesc(): Route[] {
     const result = super.amountUserDesc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   orderRoutesByLengthAsc(): Route[] {
     const result = super.orderRoutesByLengthAsc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   orderRoutesByLengthDesc(): Route[] {
     const result = super.orderRoutesByLengthDesc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   orderRoutesByCalificationAsc(): Route[] {
     const result = super.orderRoutesByCalificationAsc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   */
   orderRoutesByCalificationDesc(): Route[] {
     const result = super.orderRoutesByCalificationDesc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   */
   orderRoutesByActivityAsc(): Route[] {
     const result = super.orderRoutesByActivityAsc();
     return result;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id
+   * @returns void
+   * 
+   */
   orderRoutesByActivityDesc(): Route[] {
     const result = super.orderRoutesByActivityDesc();
     return result;

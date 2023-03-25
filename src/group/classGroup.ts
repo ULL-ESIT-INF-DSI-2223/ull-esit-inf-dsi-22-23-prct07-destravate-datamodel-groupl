@@ -23,14 +23,14 @@ export class Grupo {
  private clasificacionUsuario_: number[];
  private idRutasFavorita_: number[];
  private todasRutasUsuarios_: number[];
- private creator_: boolean;
- private idCreator_: number;
+ private creator_ = true;
+ private idCreator_ = 0;
 
 
 
 // Constructor
 
-  constructor(id: number, nombre: string, participantesGrupo: number[], estadisticaGrupalEntrenamiento: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento], clasificacionUsuario: number[], idRutasFavoritas: number[], todasRutasUsuarios: number[]) {
+  constructor(id: number, nombre: string, participantesGrupo: number[], estadisticaGrupalEntrenamiento: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento], clasificacionUsuario: number[], idRutasFavoritas: number[], todasRutasUsuarios: number[], creator: boolean, idCreator: number) {
     this.id_ = id;
     this.nombre_ = nombre;
     this.participantesGrupo_ = participantesGrupo;
@@ -38,10 +38,8 @@ export class Grupo {
     this.clasificacionUsuario_ = clasificacionUsuario;
     this.idRutasFavorita_ = idRutasFavoritas;
     this.todasRutasUsuarios_ = todasRutasUsuarios;
-    this.creator_ = true;
-    this.idCreator_ = id;
-
-    
+    this.creator_ = creator;
+    this.idCreator_ = idCreator;
   }
 
 // Getters

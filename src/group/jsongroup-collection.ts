@@ -20,7 +20,7 @@ import { groupCollection } from "./group-collection";
  * @description Interfaz que representa el esquema de la base de datos
  */
 type schemaType = {
-  groups: { id_: number, nombre_: string, participantesGrupo_: number[], estadisticaGrupalEntrenamiento_: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento], clasificacionUsuario_: number[], idRutasFavorita_: number[], todasRutasUsuarios_: number[]}[]
+  groups: { id_: number, nombre_: string, participantesGrupo_: number[], estadisticaGrupalEntrenamiento_: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento], clasificacionUsuario_: number[], idRutasFavorita_: number[], todasRutasUsuarios_: number[],   creator_: boolean; idCreator_: number;}[]
 };
 
 
@@ -31,13 +31,7 @@ type schemaType = {
  * @param groupItems - Array de grupos
  * @param database - Base de datos
  * @param nextId - Id del siguiente grupo
- * 
- * @method storeTasks - Almacena los grupos en la base de datos
- * @method getNextId - Devuelve el id del siguiente grupo
- * @method addGroup - Añade un grupo a la colección
- * @method addExistedGroup - Añade un grupo a la colección
- * @method ereaseGroup - Elimina un grupo de la colección
- * 
+
  */
 export class jsonGroupCollection extends groupCollection {
 
@@ -50,7 +44,7 @@ export class jsonGroupCollection extends groupCollection {
       
       const dbItems = this.database.get("groups").value();
       // Initialize the map with the data from the database
-      dbItems.forEach(item => this.groupMap.set(item.id_, new Grupo(item.id_, item.nombre_, item.participantesGrupo_, item.estadisticaGrupalEntrenamiento_, item.clasificacionUsuario_, item.idRutasFavorita_, item.todasRutasUsuarios_)));
+      dbItems.forEach(item => this.groupMap.set(item.id_, new Grupo(item.id_, item.nombre_, item.participantesGrupo_, item.estadisticaGrupalEntrenamiento_, item.clasificacionUsuario_, item.idRutasFavorita_, item.todasRutasUsuarios_, item.creator_, item.idCreator_)));
       // Initialize the nextId with the highest id in the database + 1
       this.nextId = this.database.get("groups").value().length + 1;
     } 

@@ -25,18 +25,34 @@ export class routeCollection {
     this.nextId = routeItems.length + 1;
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   addRoute(route: Route) {
     this.routeMap.set(this.nextId++, route);
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   getRoute(id: number) {
     return this.routeMap.get(id);
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   getAllRoutes() {
     return Array.from(this.routeMap.values());
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   orderRoutesAlfabeticallAsc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.nombreRuta.localeCompare(b.nombreRuta));
@@ -44,6 +60,9 @@ export class routeCollection {
     
   }
 
+  /**
+   * @returns the next id to be used
+   */
   orderRoutesAlfabeticallDesc() {
     const routes = Array.from(this.routeMap.values());
     
@@ -52,25 +71,38 @@ export class routeCollection {
     return routes;
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   amountUserAsc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.idUsuariosRuta.length - b.idUsuariosRuta.length);
     return routes;   
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   amountUserDesc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.idUsuariosRuta.length - b.idUsuariosRuta.length);
     routes.reverse();
     return routes;
   }
-  
+  /**
+   * @returns the next id to be used
+   */
   orderRoutesByLengthAsc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.longitudRutaKm - b.longitudRutaKm);
     return routes;
   }
-
+  
+  /**
+   * @returns the next id to be used
+   */
   orderRoutesByLengthDesc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.longitudRutaKm - b.longitudRutaKm);
@@ -78,12 +110,19 @@ export class routeCollection {
     return routes;
   }
 
+  /**
+   * @returns the next id to be used
+   */
   orderRoutesByCalificationAsc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.calificacionMediaRuta - b.calificacionMediaRuta);
     return routes;
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   orderRoutesByCalificationDesc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.calificacionMediaRuta - b.calificacionMediaRuta);
@@ -91,12 +130,19 @@ export class routeCollection {
     return routes;
   }
 
+  /**
+   * @returns the next id to be used
+   */
   orderRoutesByActivityAsc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.tipoActividad.localeCompare(b.tipoActividad));
     return routes;
   }
 
+  /**
+   * @returns the next id to be used
+   * 
+   */
   orderRoutesByActivityDesc() {
     const routes = Array.from(this.routeMap.values());
     routes.sort((a, b) => a.tipoActividad.localeCompare(b.tipoActividad));

@@ -14,18 +14,19 @@
 import * as inquirer from 'inquirer';
 import { Retos } from '../retos/classRetos';
 import { jsonRetosCollection } from '../retos/jsonretos-collection';
+import { MenuPrincipal } from './mainPrompt';
 
 //funcion prueba inquirer
 const prompt = inquirer.createPromptModule();
 
 
+/**
+ * Funcion que permite ordenar los retos de la base de datos
+ * Alfabéticamente por nombre del reto, ascendente y descendente.
+ * Por cantidad de KM que se deben realizar, ascendente y descendente. 
+ * Por la cantidad de usuarios que lo están realizando, ascendente y descendente.
+ */
 
-// funcion que permite 
-/*Retos:
-Alfabéticamente por nombre del reto, ascendente y descendente.
-Por cantidad de KM que se deben realizar, ascendente y descendente.
-Por la cantidad de usuarios que lo están realizando, ascendente y descendente.
-*/
 
 export function InquirerRetos(restosCollection: jsonRetosCollection) {
 
@@ -71,7 +72,7 @@ export function InquirerRetos(restosCollection: jsonRetosCollection) {
         console.table(restosCollection.orderCantidadUsuariosDesc());
       }
     }
-    
+    MenuPrincipal();
   });
 }
 
