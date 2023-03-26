@@ -34,6 +34,10 @@ type schemaType = {
  * @param nextId - Id del siguiente grupo
 
  */
+
+/**
+ * Clase que maneja la base de datos de la colleción de grupo de la aplicación
+ */
 export class jsonGroupCollection extends groupCollection {
 
   private database: lowdb.LowdbSync<schemaType>;
@@ -44,12 +48,10 @@ export class jsonGroupCollection extends groupCollection {
     if (this.database.has("groups").value())  { // If the database has already been initialized
       
       const dbItems = this.database.get("groups").value();
-      // Initialize the map with the data from the database
       dbItems.forEach(item => this.groupMap.set(item.id_, new Grupo(item.id_, item.nombre_, item.participantesGrupo_, item.estadisticaGrupalEntrenamiento_, item.clasificacionUsuario_, item.idRutasFavorita_, item.todasRutasUsuarios_, item.creator_, item.idCreator_)));
-      // Initialize the nextId with the highest id in the database + 1
       this.nextId = this.database.get("groups").value().length + 1;
     } 
-    else { // If the database has not been initialized
+    else { 
         this.database.set("groups", groupItems).write();
         groupItems.forEach(item => this.groupMap.set(item.Id, item));
         this.nextId = this.database.get("groups").value().length + 1;

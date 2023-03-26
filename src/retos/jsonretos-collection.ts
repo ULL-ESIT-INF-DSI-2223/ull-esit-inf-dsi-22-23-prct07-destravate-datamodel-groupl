@@ -14,17 +14,18 @@
 import { Retos } from "./classRetos";
 import * as lowdb from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";
-import { GeoLocalization } from "../route/classRoute";
 import  {Actividad} from '../route/classRoute';
 import { retosCollection } from "./retos-collection";
 /* 
- * @param retosItems
- * @returns void
+ * Esquema de la base de datos de los retos
  */
 type schemaTypeRetos = {
   retos: {id: number; nombre: string; rutasRetos: number[]; tipoActividad: Actividad; kmTotales: number; idUsersRetos: number[]}[]
 };
 
+/**
+ * Clase que maneja la base de datos de los retos
+ */
 export class jsonRetosCollection extends retosCollection {
 
   private database: lowdb.LowdbSync<schemaTypeRetos>;
@@ -74,7 +75,7 @@ export class jsonRetosCollection extends retosCollection {
   }
 
   /**
-   * Deletes a reto from the collection
+   * Obtener un reto de la collection
    * @param id
    * @returns Retos
    * 
@@ -83,6 +84,10 @@ export class jsonRetosCollection extends retosCollection {
     return super.getRetos(id);
   }
 
+  /**
+   * Elimina un reto de la collection
+   * @param id Id del reto a borrar
+   */
   eraseReto(id: number) {
     super.eraseRetos(id);
     this.storeTasks();

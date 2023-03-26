@@ -86,6 +86,10 @@ export function InquirerRoutes(routeCollection: jsonRouteCollection) {
   });
 }
 
+/**
+ * Función prompt que permite crear una ruta nueva
+ * @param routeCollection Collección de rutas en la base de datos
+ */
 export function InquirerCrearRuta(routeCollection: jsonRouteCollection) {
   const prompt = inquirer.createPromptModule();
   const userCollection = new jsonUserCollection();
@@ -155,6 +159,10 @@ export function InquirerCrearRuta(routeCollection: jsonRouteCollection) {
   });
 }
 
+/**
+ * Función prompt que permite eliminar una ruta
+ * @param routeCollection Collección de rutas en la base de datos
+ */
 export function InquirerEliminarRuta(routeCollection: jsonRouteCollection) {
   const prompt = inquirer.createPromptModule();
   prompt([
@@ -175,6 +183,10 @@ export function InquirerEliminarRuta(routeCollection: jsonRouteCollection) {
 
 }
 
+/**
+ * Función prompt que permite modificar una ruta
+ * @param rutaCollection Collección de rutas en la base de datos
+ */
 export function InquirerModificarRuta(rutaCollection: jsonRouteCollection) {
   const prompt = inquirer.createPromptModule();
   const userCollection = new jsonUserCollection();

@@ -13,7 +13,9 @@
 
 import {Actividad} from "../route/classRoute";
 
-
+/**
+ * Clase que representa un reto de la aplicación
+ */
 export class Retos{
 
   private id: number;

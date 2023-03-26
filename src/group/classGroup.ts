@@ -15,7 +15,9 @@ import { historic } from "../user/classUser";
 
 export type EstadisticasEntrenamiento = [number,number];
 
-
+/**
+ * Clase que representa un grupo de usuarios de la aplicación
+ */
 export class Grupo {
 
  private id_: number;

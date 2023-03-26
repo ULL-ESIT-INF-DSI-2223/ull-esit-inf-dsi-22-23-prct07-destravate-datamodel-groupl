@@ -12,10 +12,6 @@
  */
 
 import { Retos } from "./classRetos";
-import * as lowdb from "lowdb";
-import * as FileSync from "lowdb/adapters/FileSync";
-import { GeoLocalization } from "../route/classRoute";
-import  {Actividad} from '../route/classRoute';
 
 /**
  * Clase que representa una colección de retos

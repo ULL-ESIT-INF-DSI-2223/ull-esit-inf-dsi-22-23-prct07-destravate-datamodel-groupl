@@ -21,6 +21,9 @@ type schemaType = {
   routes: { idRuta_: number; nombreRuta_: string; geoInicio_: GeoLocalization; geoFin_: GeoLocalization; longitudRutaKm_: number; desnivelMedio_: number, idUsuariosRuta_: number[]; tipoActividad_: Actividad; calificacionMediaRuta_: number}[]
 };
 
+/**
+ * Clase que maneja la base de datos de las rutas
+ */
 export class jsonRouteCollection extends routeCollection {
 
   private database: lowdb.LowdbSync<schemaType>;
@@ -57,14 +60,21 @@ export class jsonRouteCollection extends routeCollection {
     return this.nextId;
   }
 
+  /**
+   * Elimina una ruta de la base de datos
+   * @param id Ruta a eliminar
+   */
   ereaseRoute(id: number): void {
     super.ereaseRoute(id);
     this.storeTasks();
   }
 
+  /**
+   * Reemplaza una ruta de la base de datos
+   * @param id Id de la ruta a reemplazar
+   * @param route Ruta a reemplazar
+   */
   changeRouteById(id: number, route: Route): void {
-    //this.ereaseRoute(id);
-    //super.changeRouteById(id, route);
     this.storeTasks();
   }
   

@@ -19,7 +19,7 @@ import { jsonRouteCollection } from '../route/jsonroute-collection';
 import { jsonUserCollection } from '../user/jsonuser-collection';
 import { Actividad } from '../route/classRoute';
 
-//funcion prueba inquirer
+//Prompt 
 const prompt = inquirer.createPromptModule();
 
 
@@ -28,9 +28,8 @@ const prompt = inquirer.createPromptModule();
  * Alfabéticamente por nombre del reto, ascendente y descendente.
  * Por cantidad de KM que se deben realizar, ascendente y descendente. 
  * Por la cantidad de usuarios que lo están realizando, ascendente y descendente.
+ * @param restosCollection Coleccion de retos en la base de datos
  */
-
-
 export function InquirerRetos(restosCollection: jsonRetosCollection) {
 
   prompt([
@@ -149,6 +148,10 @@ export function AñadirParticipanteReto(retosCollection: jsonRetosCollection) {
   });
 }
 
+/**
+ * Función que permite actualizar los km totales de un reto
+ * @param retosCollection Coleccion de retos en la base de datos
+ */
 export function actualizarKmTotales(retosCollection: jsonRetosCollection) {
   const prompt = inquirer.createPromptModule();
   prompt([
@@ -176,6 +179,11 @@ export function actualizarKmTotales(retosCollection: jsonRetosCollection) {
   });
 }
 
+/**
+ * Funcion que permite gestionar los retos
+ * 
+ * @param retosCollection Coleccion de retos en la base de datos 
+ */
 export function InquirerGestionarRetos (retosCollection: jsonRetosCollection) {
 
   prompt([
@@ -200,6 +208,10 @@ export function InquirerGestionarRetos (retosCollection: jsonRetosCollection) {
 
 }
 
+/**
+ * Funcion prompt que permite eliminar un reto
+ * @param retosCollection Coleccion de retos en la base de datos
+ */
 export function InquirerEliminarReto(retosCollection: jsonRetosCollection) {
   prompt([
     {
@@ -219,6 +231,10 @@ export function InquirerEliminarReto(retosCollection: jsonRetosCollection) {
   });
 }
 
+/**
+ * Funcion que permite crear un reto
+ * @param retosCollection Coleccion de retos en la base de datos
+ */
 export function InquirerCrearReto(retosCollection: jsonRetosCollection) {
   const usuarioCollection = new jsonUserCollection();
   const routeCollection = new jsonRouteCollection();

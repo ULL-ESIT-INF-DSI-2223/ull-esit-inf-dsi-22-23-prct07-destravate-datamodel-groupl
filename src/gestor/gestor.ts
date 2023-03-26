@@ -27,7 +27,7 @@ import { Actividad } from '../route/classRoute';
 import { MenuPrincipal } from '../funcionesInquirer/mainPrompt';
 
 /**
- * @
+ * Clase que permite gestionar la información del sistema permitiendo registrar usuarios, añadir grupos y visualizar rutas
  */
 export class Gestor {
   private groupCollection: jsonGroupCollection;
@@ -345,9 +345,3 @@ export class Gestor {
     }
   }
 
-const gestor = new Gestor();
-//gestor.registrarSistema();
-//gestor.mostrarRutas();
-//gestor.crearGrupo();
-//gestor.ereaseGroup();
-//gestor.visualizarGrupos();

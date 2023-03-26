@@ -11,12 +11,12 @@
  * @date 26/03/2023
  */
 
-import { EstadisticasEntrenamiento, Grupo } from "./classGroup";
-import * as lowdb from "lowdb";
-import * as FileSync from "lowdb/adapters/FileSync";
+import {Grupo } from "./classGroup";
 
 
-
+/**
+ * Clase que representa una colección de grupos
+ */
 export class groupCollection {
   protected nextId = 1;
   protected groupMap = new Map<number, Grupo>();

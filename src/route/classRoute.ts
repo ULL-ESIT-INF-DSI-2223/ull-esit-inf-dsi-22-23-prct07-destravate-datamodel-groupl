@@ -123,34 +123,66 @@ export class Route {
     return this.calificacionMediaRuta_;
   }
 
+  /**
+   * Método para establecer el id de la ruta
+   * @param nombreRuta Nombre de la ruta
+   */
   setNombreRuta(nombreRuta: string) {
     this.nombreRuta_ = nombreRuta;
   }
 
+  /**
+   * Método para establecer la geolocalización del inicio de la ruta
+   * @param geoInicio Coordenadas del inicio de la ruta
+   */
   setGeoInicio(geoInicio: GeoLocalization) {
     this.geoInicio_ = geoInicio;
   }
 
+  /**
+   * Método para establecer la geolocalización del final de la ruta
+   * @param geoFin Coordenadas del final de la ruta
+   */
   setGeoFin(geoFin: GeoLocalization) {
     this.geoFin_ = geoFin;
   }
 
+  /**
+   * Método para establecer la longitud de la ruta en km
+   * @param longitudRutaKm Longitud de la ruta en km
+   */
   setLongitudRutaKm(longitudRutaKm: number) {
     this.longitudRutaKm_ = longitudRutaKm;
   }
 
+  /**
+   * Método para establecer el desnivel medio de la ruta
+   * @param desnivelMedio Desnivel medio de la ruta
+   */
   setDesnivelMedio(desnivelMedio: number) {
     this.desnivelMedio_ = desnivelMedio;
   }
 
+  /**
+   * Método para establecer el id de los usuarios de la ruta
+   * @param idUsuariosRuta Id de los usuarios de la ruta
+   */
   setIdUsuarioRuta(idUsuariosRuta: number) {
     this.idUsuariosRuta_.push(idUsuariosRuta);
   }
 
+  /**
+   * Método para establecer el tipo de actividad para el que se prevé la ruta
+   * @param tipoActividad Tipo de actividad 'bicicleta' o 'correr'
+   */
   setTipoActividad(tipoActividad: Actividad) {
     this.tipoActividad_ = tipoActividad;
   }
 
+  /**
+   * Método para establecer la calificación media de la ruta
+   * @param calificacionMediaRuta 
+   */
   setCalificacionMediaRuta(calificacionMediaRuta: number) {
     this.calificacionMediaRuta_ = calificacionMediaRuta;
   }

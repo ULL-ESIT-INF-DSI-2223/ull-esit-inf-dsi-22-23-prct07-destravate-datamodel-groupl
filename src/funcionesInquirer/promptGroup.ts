@@ -151,7 +151,11 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
     }
     );
   }
-
+  
+  /**
+   * Función prompt que permite actualizar las estadísticas de un grupo de la base de datos
+   * @param groupCollection Colección de grupos en la base de datos
+   */
   export function InquirerActualizarEstadistica(groupCollection: jsonGroupCollection){
     const prompt = inquirer.createPromptModule();
 
@@ -222,6 +226,10 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
     })
   }
 
+  /**
+   * Función prompt que permite actualizar la clasificación de un grupo de la base de datos
+   * @param groupCollection Colección de grupos en la base de datos
+   */
   export function InquirerActualizarClasificacion(groupCollection: jsonGroupCollection){
     const prompt = inquirer.createPromptModule();
     prompt([
@@ -262,6 +270,10 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
 
   }
 
+  /**
+   * Función prompt que permite añadir una ruta favorita a un grupo de la base de datos
+   * @param groupCollection Colección de grupos en la base de datos
+   */
   export function InquirerAñadirRutaFavoritaGrupo(groupCollection: jsonGroupCollection){
     const prompt = inquirer.createPromptModule();
     const rutaCollection = new jsonRouteCollection();
@@ -296,6 +308,10 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
     })
   }
 
+  /**
+   * Función prompt que permite añadir una ruta al histórico de un grupo de la base de datos
+   * @param groupCollection Colección de grupos en la base de datos
+   */
   export function InquiererAñadirHistorico(groupCollection: jsonGroupCollection){
     const prompt = inquirer.createPromptModule();
     const rutaCollection = new jsonRouteCollection();
@@ -337,6 +353,10 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
     })
   }
 
+  /**
+   * Función prompt que permite modificar un grupo de la base de datos
+   * @param groupCollection Colección de grupos en la base de datos
+   */
   export function InquirerModificarGrupo(groupCollection: jsonGroupCollection){
     const prompt = inquirer.createPromptModule();
     prompt([

@@ -12,7 +12,6 @@
  */
 
 import * as inquirer from 'inquirer';
-//import { InquirerGroups } from './promptGroup';
 import { InquirerRoutes } from './promptRoutes';
 import { InquirerRetos } from './promptRetos';
 import { InquirerUsers } from './promptUsers';
@@ -36,10 +35,12 @@ const jsonroute = new jsonRouteCollection();
 const jsonretos = new jsonRetosCollection();
 const gestor = new Gestor();
 
-// Información del usuario actual
+// Id del usuario que ha iniciado sesión
 let idUsuarioActual = -1;
-//let nombreUsuarioActual = "";
 
+/**
+ * Función que se utiliza para mostrar el menú principal
+ */
 export function MenuPrincipal() {
   const prompt = inquirer.createPromptModule();
   prompt([
@@ -196,6 +197,6 @@ export function mainPrompt() {
   });
 
 }
-
+ // Inicio de la aplicación
 mainPrompt();
 

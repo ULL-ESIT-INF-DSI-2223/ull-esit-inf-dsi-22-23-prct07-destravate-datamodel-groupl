@@ -19,7 +19,7 @@ import { jsonRetosCollection } from '../retos/jsonretos-collection';
 import { jsonRouteCollection } from '../route/jsonroute-collection';
 import { stats } from '../user/classUser';
 
-//funcion prueba inquirer
+//Prompt
 const prompt = inquirer.createPromptModule();
 
 /**
@@ -108,6 +108,11 @@ export function InquirerUsers(userCollection: jsonUserCollection) {
   });
 }
 
+/**
+ * Función prompt que permite añadir un amigo a un usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere añadir un amigo
+ */
 export function InquirerAddFriend(userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
 
@@ -130,6 +135,11 @@ export function InquirerAddFriend(userCollection: jsonUserCollection, idUser: nu
   });
 }
 
+/**
+ * Función prompt que permite añadir un reto a un usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere añadir un reto
+ */
 export function InquirerAddChallenge(userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
   const jsonretos = new jsonRetosCollection();
@@ -152,6 +162,11 @@ export function InquirerAddChallenge(userCollection: jsonUserCollection, idUser:
   });
 }
 
+/**
+ * Función prompt que permite añadir una ruta a un usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere añadir una ruta
+ */
 export function InquirerAddFavoriteRoute(userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
   const jsonrutas = new jsonRouteCollection();
@@ -174,6 +189,11 @@ export function InquirerAddFavoriteRoute(userCollection: jsonUserCollection, idU
   });
 }
 
+/**
+ * Función prompt que permite actualizar las estadísticas de un usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere actualizar las estadísticas
+ */
 export function InquirerUpdateStatistic(userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
 
@@ -235,6 +255,11 @@ export function InquirerUpdateStatistic(userCollection: jsonUserCollection, idUs
     })
 }
 
+/**
+ * Función prompt que permite añadir una serie de rutas al histórico de un usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere añadir una ruta
+ */
 export function InquirerAddHistoricRoute(userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
   const jsonrutas = new jsonRouteCollection();
@@ -263,6 +288,11 @@ export function InquirerAddHistoricRoute(userCollection: jsonUserCollection, idU
   });
 }
 
+/**
+ * Función prompt que permite borrar una cuenta de usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere borrar la cuenta
+ */
 export function InquirerDeleteUser(userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
   prompt([
@@ -284,7 +314,11 @@ export function InquirerDeleteUser(userCollection: jsonUserCollection, idUser: n
   });
 }
 
-
+/**
+ * Función prompt que permite gestionar la cuenta de un usuario
+ * @param userCollection Colección de usuarios en la base de datos
+ * @param idUser Id del usuario que ha iniciado sesión y al que se quiere gestionar la cuenta
+ */
 export function InquirerGestionarCuenta (userCollection: jsonUserCollection, idUser: number) {
   const prompt = inquirer.createPromptModule();
 

@@ -11,11 +11,8 @@
  * @date 26/03/2023
  */
 
-import {Actividad} from "../route/classRoute";
-import { historic, User } from "../user/classUser";
-import * as lowdb from "lowdb";
-import * as FileSync from "lowdb/adapters/FileSync";
-import {stats} from "../user/classUser";
+
+import { User } from "../user/classUser";
 
 export class userCollection {
   protected nextId = 1;
@@ -147,13 +144,3 @@ export class userCollection {
   }
 
 }
-
-
-
-// const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-
-// jsonusercollection1.addUser(user2);
-
-// const user3 = new User( jsonusercollection1.getNextId(), "Alberto", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-
-// jsonusercollection1.addUser(user3);

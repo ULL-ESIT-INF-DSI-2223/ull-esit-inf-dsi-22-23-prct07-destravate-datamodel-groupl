@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "idRuta_": 3,
-      "nombreRuta_": "ruta3modif4",
+      "idRuta_": 1,
+      "nombreRuta_": "Ruta de la costa",
       "geoInicio_": [
         23,
         45

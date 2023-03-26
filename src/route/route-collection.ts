@@ -11,12 +11,12 @@
  * @date 26/03/2023
  */
 
-import { Actividad, Route } from "./classRoute";
-import * as lowdb from "lowdb";
-import * as FileSync from "lowdb/adapters/FileSync";
-import { GeoLocalization } from "./classRoute";
+import {Route } from "./classRoute";
 
 
+/**
+ * Clase que representa una colección de rutas
+ */
 export class routeCollection {
   protected nextId = 1;
   protected routeMap = new Map<number, Route>();
@@ -49,10 +49,19 @@ export class routeCollection {
     return Array.from(this.routeMap.values());
   }
 
+  /**
+   * Deletes a route from the collection
+   * @param id 
+   */
   ereaseRoute(id: number) {
     this.routeMap.delete(id);
   }
 
+  /**
+   * Changes a route from the collection
+   * @param id Id de la ruta a cambiar
+   * @param route Ruta nueva
+   */
   changeRouteById(id: number, route: Route) {
     this.ereaseRoute(id);
     this.routeMap.set(id, route);
@@ -161,12 +170,3 @@ export class routeCollection {
   
 
 }
-
-// const jsonroutecollection = new jsonRouteCollection([]);
-
-
-
-
-// const route3 = new Route(jsonroutecollection.getNextId(), "Ruta 3", [40.416775, -3.703790], [40.416775, -3.703790], 10, 10, [1,2,3], "bicicleta", 5);
-
-// jsonroutecollection.addRoute(route3);

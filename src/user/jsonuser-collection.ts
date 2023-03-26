@@ -30,8 +30,6 @@ type schemaType = {
 
 /**
  * Clase que extiende de userCollection y que implementa la base de datos de usuarios
- * 
- * 
  */
 export class jsonUserCollection extends userCollection {
 
