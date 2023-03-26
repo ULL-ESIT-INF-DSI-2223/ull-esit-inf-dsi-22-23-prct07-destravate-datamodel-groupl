@@ -49,6 +49,15 @@ export class routeCollection {
     return Array.from(this.routeMap.values());
   }
 
+  ereaseRoute(id: number) {
+    this.routeMap.delete(id);
+  }
+
+  changeRouteById(id: number, route: Route) {
+    this.ereaseRoute(id);
+    this.routeMap.set(id, route);
+  }
+
   /**
    * @returns the next id to be used
    * 

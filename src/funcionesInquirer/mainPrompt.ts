@@ -12,7 +12,7 @@
  */
 
 import * as inquirer from 'inquirer';
-import { InquirerGroups } from './promptGroup';
+//import { InquirerGroups } from './promptGroup';
 import { InquirerRoutes } from './promptRoutes';
 import { InquirerRetos } from './promptRetos';
 import { InquirerUsers } from './promptUsers';
@@ -22,6 +22,13 @@ import { jsonRetosCollection } from '../retos/jsonretos-collection';
 import { jsonUserCollection } from '../user/jsonuser-collection';
 import { Gestor } from '../gestor/gestor';
 import { InquirerGestionarCuenta } from './promptUsers';
+import {InquirerModificarGrupo} from './promptGroup';
+import { InquirerCrearRuta } from './promptRoutes';
+import { InquirerEliminarRuta } from './promptRoutes';
+import { InquirerModificarRuta } from './promptRoutes';
+import {InquirerGestionarRetos} from './promptRetos';
+import {InquirerEliminarReto} from './promptRetos';
+import {InquirerCrearReto} from './promptRetos';
 
 const jsonuser = new jsonUserCollection();
 const jsongroup = new jsonGroupCollection();
@@ -49,7 +56,7 @@ export function MenuPrincipal() {
           type: 'list',
           name: 'menu',
           message: '¿Qué desea hacer?',
-          choices: ['Crear grupo', 'Eliminar grupo', 'Unirse a un grupo', 'Visualizar los grupos', 'Salir'],
+          choices: ['Crear grupo', 'Eliminar grupo', 'Unirse a un grupo', 'Visualizar los grupos', 'Modificar grupo', 'Salir'],
         }
       ]).then ((answers) => {
         if (answers.menu === 'Crear grupo') {
@@ -63,6 +70,8 @@ export function MenuPrincipal() {
           gestor.visualizarGrupos();
         } else if (answers.menu === 'Eliminar grupo') {
           gestor.ereaseGroup(idUsuarioActual);
+        } else if (answers.menu === 'Modificar grupo') {
+          InquirerModificarGrupo(jsongroup);
         }
         else {
           process.exit(0);
@@ -70,10 +79,52 @@ export function MenuPrincipal() {
       });
     }
     else if (answers.menu === 'Gestionar rutas') {
-      InquirerRoutes(jsonroute);
+      prompt([
+        {
+          type: 'list',
+          name: 'menu',
+          message: '¿Qué desea hacer?',
+          choices: ['Crear ruta', 'Eliminar ruta', 'Visualizar las rutas', 'Modificar ruta', 'Salir'],
+        }
+      ]).then ((answers) => {
+        if (answers.menu === 'Crear ruta') {
+          InquirerCrearRuta(jsonroute);
+        }
+        else if (answers.menu === 'Visualizar las rutas') {
+          InquirerRoutes(jsonroute);
+        } else if (answers.menu === 'Eliminar ruta') {
+          InquirerEliminarRuta(jsonroute);
+        } else if (answers.menu === 'Modificar ruta') {
+          InquirerModificarRuta(jsonroute);
+        }
+        else {
+          process.exit(0);
+        }
+      }
+      );
     }
     else if (answers.menu === 'Gestionar retos') {
-      InquirerRetos(jsonretos);
+      prompt([
+        {
+          type: 'list',
+          name: 'menu',
+          message: '¿Qué desea hacer?',
+          choices: ['Crear reto', 'Eliminar reto', 'Modificar reto', 'Visualizar los retos'],
+        }
+      ]).then ((answers) => {
+        if (answers.menu === 'Crear reto') {
+          InquirerCrearReto(jsonretos);
+        }
+        else if (answers.menu === 'Visualizar los retos') {
+          InquirerRetos(jsonretos);
+        }
+        else if (answers.menu === 'Eliminar reto') {
+          InquirerEliminarReto(jsonretos);
+        } else if (answers.menu === 'Modificar reto') {
+          InquirerGestionarRetos(jsonretos);
+        }
+      }
+      );
     } else if (answers.menu === 'Gestionar usuarios') {
       InquirerUsers(jsonuser);
     } else if (answers.menu === 'Gestionar mi cuenta') {
@@ -106,7 +157,6 @@ export function InquirerInicioSistema() {
     if (jsonuser.getUser(Number(answers.id)) !== undefined) {
       if (jsonuser.getUser(Number(answers.id))?.userName === answers.nombre) {
         idUsuarioActual = Number(answers.id);
-        //nombreUsuarioActual = answers.nombre;
         console.log('Bienvenido ' + answers.nombre + ' al sistema' + ' ID: ' + answers.id);
         MenuPrincipal();
       } else {

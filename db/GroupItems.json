@@ -2,132 +2,8 @@
   "groups": [
     {
       "id_": 2,
-      "nombre_": "Grupo2",
-      "participantesGrupo_": [
-        1,
-        2,
-        3
-      ],
-      "estadisticaGrupalEntrenamiento_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "clasificacionUsuario_": [
-        1,
-        2,
-        3
-      ],
-      "idRutasFavorita_": [
-        1,
-        2,
-        3
-      ],
-      "todasRutasUsuarios_": [
-        1,
-        2,
-        3
-      ],
-      "creator_": true,
-      "idCreator_": 0
-    },
-    {
-      "id_": 3,
-      "nombre_": "Grupo3",
-      "participantesGrupo_": [
-        1,
-        2,
-        3
-      ],
-      "estadisticaGrupalEntrenamiento_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "clasificacionUsuario_": [
-        1,
-        2,
-        3
-      ],
-      "idRutasFavorita_": [
-        1,
-        2,
-        3
-      ],
-      "todasRutasUsuarios_": [
-        1,
-        2,
-        3
-      ],
-      "creator_": true,
-      "idCreator_": 0
-    },
-    {
-      "id_": 1,
-      "nombre_": "Grupo1",
-      "participantesGrupo_": [
-        2,
-        3,
-        1,
-        4,
-        5
-      ],
-      "estadisticaGrupalEntrenamiento_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "clasificacionUsuario_": [
-        1,
-        2,
-        3
-      ],
-      "idRutasFavorita_": [
-        1,
-        2,
-        3
-      ],
-      "todasRutasUsuarios_": [
-        1,
-        2,
-        3
-      ],
-      "creator_": true,
-      "idCreator_": 0
-    },
-    {
-      "id_": 4,
-      "nombre_": "grupodePancho",
-      "participantesGrupo_": [
-        5
-      ],
+      "nombre_": "grupo2",
+      "participantesGrupo_": [],
       "estadisticaGrupalEntrenamiento_": [
         [
           0,
@@ -145,8 +21,50 @@
       "clasificacionUsuario_": [],
       "idRutasFavorita_": [],
       "todasRutasUsuarios_": [],
-      "creator_": false,
-      "idCreator_": "5"
+      "creator_": true,
+      "idCreator_": 0,
+      "historico_": []
+    },
+    {
+      "id_": 1,
+      "nombre_": "grupo1",
+      "participantesGrupo_": [
+        6,
+        5
+      ],
+      "estadisticaGrupalEntrenamiento_": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "clasificacionUsuario_": [
+        5,
+        6
+      ],
+      "idRutasFavorita_": [
+        2
+      ],
+      "todasRutasUsuarios_": [],
+      "creator_": true,
+      "idCreator_": 0,
+      "historico_": [
+        [
+          "26/03/23",
+          [
+            1,
+            2
+          ]
+        ]
+      ]
     }
   ]
 }

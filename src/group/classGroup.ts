@@ -11,6 +11,8 @@
  * @date 26/03/2023
  */
 
+import { historic } from "../user/classUser";
+
 export type EstadisticasEntrenamiento = [number,number];
 
 
@@ -25,6 +27,7 @@ export class Grupo {
  private todasRutasUsuarios_: number[];
  private creator_ = true;
  private idCreator_ = 0;
+ private historico_: historic[] = [];
 
 
 
@@ -175,5 +178,13 @@ export class Grupo {
    */
   setTodasRutasUsuarios(todasRutasUsuarios: number[]) {
     this.todasRutasUsuarios_ = todasRutasUsuarios;
+  }
+
+  /**
+   * Método para añadir rutas al historico del grupo
+   * @param historico Historico del día
+   */
+  setHistorico(historico: historic) {
+    this.historico_.push(historico);
   }
 }

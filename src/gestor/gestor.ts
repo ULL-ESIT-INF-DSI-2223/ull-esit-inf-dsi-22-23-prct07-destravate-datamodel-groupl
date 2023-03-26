@@ -70,8 +70,6 @@ export class Gestor {
       }, 
     ]) .then((answers) => {
       this.nombreUsuario = answers.nombre;
-      console.log(this.nombreUsuario);
-      console.log(answers.actividades);
       if (answers.actividades.includes('Bicicleta') && answers.actividades.includes('Correr')) {
         this.actividadesUsuario.push("bicicleta");
         this.actividadesUsuario.push("correr");

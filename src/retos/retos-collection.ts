@@ -67,6 +67,10 @@ export class retosCollection {
     this.retosMap.set(reto.getId(), reto);
   }
 
+  eraseRetos(id: number) {
+    this.retosMap.delete(id);
+  }
+
   /**
    *  Método que elimina un reto de la colección
    * @param {number} id - Id del reto a eliminar

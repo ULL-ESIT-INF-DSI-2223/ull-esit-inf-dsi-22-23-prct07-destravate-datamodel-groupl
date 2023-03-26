@@ -56,6 +56,17 @@ export class jsonRouteCollection extends routeCollection {
   getNextId() {
     return this.nextId;
   }
+
+  ereaseRoute(id: number): void {
+    super.ereaseRoute(id);
+    this.storeTasks();
+  }
+
+  changeRouteById(id: number, route: Route): void {
+    //this.ereaseRoute(id);
+    //super.changeRouteById(id, route);
+    this.storeTasks();
+  }
   
   /**
    * Añade una ruta a la base de datos

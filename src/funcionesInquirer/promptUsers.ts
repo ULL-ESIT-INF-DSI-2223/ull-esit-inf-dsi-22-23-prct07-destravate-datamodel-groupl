@@ -235,6 +235,54 @@ export function InquirerUpdateStatistic(userCollection: jsonUserCollection, idUs
     })
 }
 
+export function InquirerAddHistoricRoute(userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
+  const jsonrutas = new jsonRouteCollection();
+  prompt([
+    {
+      type: 'input',
+      name: 'idRuta',
+      message: '¿Cuales son los id de las rutas a añadir hoy, separados por comas?'
+    }
+  ]).then((answer) => {
+    const ids: number[] = answer.idRuta.split(',').map(Number);
+    const usuario = userCollection.getUser(idUser);
+    const rutasAux: number[] = [];
+    ids.forEach((id) => {
+      if(jsonrutas.getRoute(id) !== undefined) {
+        // fecha de hoy en formato dd-mm-yy
+        const fecha = new Date().toLocaleDateString('es-ES', {day: '2-digit', month: '2-digit', year: '2-digit'});
+        rutasAux.push(id);
+        usuario?.setHistoric([fecha, rutasAux]);
+        userCollection.changeUserByID(idUser, usuario as User)
+      } else {
+        console.log(`La ruta ${id} no existe`);
+      }
+    });
+    MenuPrincipal();
+  });
+}
+
+export function InquirerDeleteUser(userCollection: jsonUserCollection, idUser: number) {
+  const prompt = inquirer.createPromptModule();
+  prompt([
+    {
+      type: 'confirm',
+      name: 'borrarCuenta',
+      message: '¿Estás seguro de que quieres borrar tu cuenta de usuario?',
+      default: false
+    }
+  ]).then((answer) => {
+    if(answer.borrarCuenta) {
+      userCollection.eraseUser(idUser);
+      console.log('Cuenta borrada correctamente');
+      MenuPrincipal();
+    } else {
+      console.log('Cuenta no borrada');
+      MenuPrincipal();
+    }
+  });
+}
 
 
 export function InquirerGestionarCuenta (userCollection: jsonUserCollection, idUser: number) {
@@ -245,7 +293,7 @@ export function InquirerGestionarCuenta (userCollection: jsonUserCollection, idU
       type: 'list',
       name: 'opciones',
       message: '¿Qué quieres hacer sobre tu cuenta de usuario?',
-      choices: ['Añadir amigo', 'Añadir reto', 'Añadir ruta favorita', 'Actualizar estadística', 'Añadir ruta al histórico']
+      choices: ['Añadir amigo', 'Añadir reto', 'Añadir ruta favorita', 'Actualizar estadística', 'Añadir ruta al histórico', 'Eliminar cuenta mi usuario']
     }
   ]).then((respuesta) => {
     switch (respuesta.opciones) {
@@ -261,8 +309,11 @@ export function InquirerGestionarCuenta (userCollection: jsonUserCollection, idU
       case 'Actualizar estadística':
         InquirerUpdateStatistic(userCollection, idUser);
         break;
-      case 'Añadir ruta al histórico':
-        //InquirerAddHistoricRoute(userCollection, idUser);
+      case 'Añadir rutas al histórico de hoy':
+        InquirerAddHistoricRoute(userCollection, idUser);
+        break;
+      case 'Eliminar cuenta mi usuario':
+        InquirerDeleteUser(userCollection, idUser);
         break;
     }
   }
@@ -270,13 +321,3 @@ export function InquirerGestionarCuenta (userCollection: jsonUserCollection, idU
 }
 
 
-
-// const user2 = new User( jsonusercollection1.getNextId(), "Alberto",["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-
-// jsonusercollection1.addUser(user2);
-
-// const user3 = new User( jsonusercollection1.getNextId(), "Alberto", ["bicicleta"], [], [], [[1,2], [1,2],[1,2]], [], [], []);
-
-// jsonusercollection1.addUser(user3);
-
-// pruebaInquirerUsers(jsonusercollection1);

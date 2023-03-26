@@ -122,4 +122,37 @@ export class Route {
   get calificacionMediaRuta() {
     return this.calificacionMediaRuta_;
   }
+
+  setNombreRuta(nombreRuta: string) {
+    this.nombreRuta_ = nombreRuta;
+  }
+
+  setGeoInicio(geoInicio: GeoLocalization) {
+    this.geoInicio_ = geoInicio;
+  }
+
+  setGeoFin(geoFin: GeoLocalization) {
+    this.geoFin_ = geoFin;
+  }
+
+  setLongitudRutaKm(longitudRutaKm: number) {
+    this.longitudRutaKm_ = longitudRutaKm;
+  }
+
+  setDesnivelMedio(desnivelMedio: number) {
+    this.desnivelMedio_ = desnivelMedio;
+  }
+
+  setIdUsuarioRuta(idUsuariosRuta: number) {
+    this.idUsuariosRuta_.push(idUsuariosRuta);
+  }
+
+  setTipoActividad(tipoActividad: Actividad) {
+    this.tipoActividad_ = tipoActividad;
+  }
+
+  setCalificacionMediaRuta(calificacionMediaRuta: number) {
+    this.calificacionMediaRuta_ = calificacionMediaRuta;
+  }
+
 }

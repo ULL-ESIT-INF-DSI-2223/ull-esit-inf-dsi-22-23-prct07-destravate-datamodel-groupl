@@ -1,46 +1,26 @@
 {
   "routes": [
     {
-      "idRuta_": 1,
-      "nombreRuta_": "Ruta 3",
+      "idRuta_": 3,
+      "nombreRuta_": "ruta3modif4",
       "geoInicio_": [
-        40.416775,
-        -3.70379
+        23,
+        45
       ],
       "geoFin_": [
-        40.416775,
-        -3.70379
+        60,
+        7
       ],
-      "longitudRutaKm_": 10,
-      "desnivelMedio_": 10,
+      "longitudRutaKm_": 20,
+      "desnivelMedio_": 3,
       "idUsuariosRuta_": [
         1,
         2,
-        3
+        3,
+        6
       ],
       "tipoActividad_": "bicicleta",
-      "calificacionMediaRuta_": 5
-    },
-    {
-      "idRuta_": 2,
-      "nombreRuta_": "Ruta 3",
-      "geoInicio_": [
-        40.416775,
-        -3.70379
-      ],
-      "geoFin_": [
-        40.416775,
-        -3.70379
-      ],
-      "longitudRutaKm_": 10,
-      "desnivelMedio_": 10,
-      "idUsuariosRuta_": [
-        1,
-        2,
-        3
-      ],
-      "tipoActividad_": "bicicleta",
-      "calificacionMediaRuta_": 5
+      "calificacionMediaRuta_": 10
     }
   ]
 }

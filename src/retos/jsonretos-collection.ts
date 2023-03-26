@@ -83,6 +83,11 @@ export class jsonRetosCollection extends retosCollection {
     return super.getRetos(id);
   }
 
+  eraseReto(id: number) {
+    super.eraseRetos(id);
+    this.storeTasks();
+  }
+
   /**
    *  Replace a reto from the collection 
    * @param reto  
