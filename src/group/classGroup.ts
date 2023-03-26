@@ -137,6 +137,10 @@ export class Grupo {
     return this.todasRutasUsuarios_;
   }
 
+  get Historico(): historic[] {
+    return this.historico_;
+  }
+
 // Setters
 
   /**

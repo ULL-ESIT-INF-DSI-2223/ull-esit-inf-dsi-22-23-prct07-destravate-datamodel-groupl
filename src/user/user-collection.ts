@@ -17,6 +17,7 @@ import { User } from "../user/classUser";
 export class userCollection {
   protected nextId = 1;
   protected userMap = new Map<number, User>();
+  
   constructor(userItems: User[] = []) {
     userItems.forEach(item => this.userMap.set(item.Id, item));
     this.nextId = userItems.length + 1;

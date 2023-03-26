@@ -25,10 +25,21 @@ describe('Retos collection', () => {
 
   const retos = [reto1, reto2, reto3];
   const retoscollection = new retosCollection(retos);
+  const retoscollection1 = new retosCollection(retos);
 
   it('Añadir el reto 4 a la colección', () => {
     retoscollection.addRetos(reto4);
     expect(retoscollection.getRetos(4)).to.be.eql(reto4);
+  } );
+
+  it('Eliminar el reto 4 de la colección', () => {
+    retoscollection1.eraseRetos(4);
+    expect(retoscollection1.getRetos(4)).to.be.eql(undefined);
+  } );
+
+  it('Cambiar el reto 1 por el reto 4', () => {
+    retoscollection1.addExistedRetos( reto3);
+    expect(retoscollection1.getRetos(3)).to.be.eql(reto3);
   } );
 
   it ('Ordenar retos alfabéticamente ASC', () => {

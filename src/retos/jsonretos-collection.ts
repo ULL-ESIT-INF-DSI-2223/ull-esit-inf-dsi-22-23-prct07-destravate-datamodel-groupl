@@ -16,8 +16,10 @@ import * as lowdb from "lowdb";
 import * as FileSync from "lowdb/adapters/FileSync";
 import  {Actividad} from '../route/classRoute';
 import { retosCollection } from "./retos-collection";
-/* 
- * Esquema de la base de datos de los retos
+
+/** 
+ * Interface for the schema of the database
+ * 
  */
 type schemaTypeRetos = {
   retos: {id: number; nombre: string; rutasRetos: number[]; tipoActividad: Actividad; kmTotales: number; idUsersRetos: number[]}[]

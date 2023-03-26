@@ -2,14 +2,14 @@
 
 ## Introducción
 
-En esta práctica se he desarrollado la primera práctica en grupo de la asiganatura de DSI. El objetivo de la práctica es crear un sistema de información que permita almacenar registros de actividades deportivas. Para ello utilizaremos typescript, así como los modulos Inquirer para la interacción con el usuario y LowDB para la gestión de la base de datos.
+En esta práctica se he desarrollado la primera práctica en grupo de la asignatura de DSI. El objetivo de la práctica es crear un sistema de información que permita almacenar registros de actividades deportivas. Para ello utilizaremos typescript, así como los modulos Inquirer para la interacción con el usuario y LowDB para la gestión de la base de datos.
 
 ## Dispositivo de trabajo  
-Para el desarrollo de esta práctica he utilizado un sistema operativo Ubuntu por lo cual algunos de los pasos realizados solo estarán disponibles para los usuarios que utilicen este sistema operativo.
+Para el desarrollo de esta práctica hemos utilizado un sistema operativo Ubuntu por lo cual algunos de los pasos realizados solo estarán disponibles para los usuarios que utilicen este sistema operativo.
 
 ## Organización del trabajo y estructura del proyecto
 
-En el repositorio de la práctica se puede encontrar la estructura del proyecto. En la raíz del proyecto se encuentra el archivo README.md que contiene la información de la práctica. 
+En cuanto a la estructra de directorios, en la raíz del proyecto se encuentra el archivo README.md que contiene la información de la práctica. 
 En la carpeta src se encuentra el código fuente de la práctica.
   Dentro encontramos los siguientes archivos:
  * funcionesIquirer.ts -> contiene las funciones que se encargan de la interacción con el usuario
@@ -35,7 +35,7 @@ El sistema tendrá que poder almacenar 4 grandes tipos de datos:
   * Grupos
   * Rutas
 
-Para lograr esto lo mas optimo que hemos considerado es crear para cada tipo de dato una clase que contenga los atributos necesarios para almacenar la información de cada uno de ellos. A continuación se detallan cada una de las clases:
+Para lograr esto lo más óptimo que hemos considerado es crear para cada tipo de dato una clase que contenga los atributos necesarios para almacenar la información de cada uno de ellos. A continuación se detallan cada una de las clases:
 
 ### Usuario
 
@@ -142,6 +142,7 @@ Para los grupos se ha decidido almacenar la información de cada uno de ellos en
   * todasRutasUsuarios -> array de ids de todas las rutas de los usuarios del grupo
   * creator -> booleano que indica si el usuario que crea el grupo es el creador del grupo
   * idCreator -> id del usuario que crea el grupo
+  * historico_ -> Almacena el historial de rutas por días del grupo
 
 La clase queda de la siguiente manera:
 
@@ -157,6 +158,7 @@ export class Grupo {
  private todasRutasUsuarios_: number[];
  private creator_ = true;
  private idCreator_ = 0;
+ private historico_: historic[] = [];
 }
 
 ```
@@ -177,7 +179,7 @@ La lógica de este tipo es la siguiente:
 
 ### Ruta
 
-Para las rutas se ha decidido almacenar la información de cada una de ellas en una clase que contenga los siguientes atributos:
+Para las rutas se hemos decidido almacenar la información de cada una de ellas en una clase que contenga los siguientes atributos:
 
   * idRuta -> identificador de la ruta
   * nombreRuta -> nombre de la ruta
@@ -312,6 +314,22 @@ export class userCollection {
   }
 
   /**
+   *  Devuelve un usuario de la colección
+   * @param {number} id
+   */
+  getAllUsers() {
+    return Array.from(this.userMap.values());
+  }
+
+  eraseUser(id: number) {
+    this.userMap.delete(id);
+  }
+
+  changeUserByID(id: number, user: User) {
+    this.userMap.set(id, user);
+  }
+
+  /**
    * Ordena los usuarios alfabeticamente de forma ascendente
    * @returns {User[]}
    */
@@ -396,6 +414,8 @@ La lógica de estos métodos es la siguiente:
   * addUser -> añade un objeto a la base de datos
   * getUser -> obtiene un objeto de la base de datos
   * getAllUsers -> obtiene todos los objetos de la base de datos
+  * eraseUser -> permite borrar un usuario de la colección
+  * changeUserById -> permite reemplazar a un usuario actualizando su información
   * orderUsersAlfabeticallAsc -> ordena los usuarios alfabeticamente de forma ascendente
   * orderUsersAlfabeticallDesc -> ordena los usuarios alfabeticamente de forma descendente
   * orderUsersByKMDayAsc -> ordena los usuarios por kilometros recorridos en un día de forma ascendente

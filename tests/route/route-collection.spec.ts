@@ -25,11 +25,24 @@ describe('Routes collection', () => {
   const routes = [route1, route2, route3];
 
   const routecollection = new routeCollection(routes);
+  const routecollection1 = new routeCollection(routes);
+
+    
+  it('Eliminar el ruta 4 de la colección', () => {
+    routecollection1.ereaseRoute(3);
+    expect(routecollection1.getRoute(3)).to.be.eql(undefined);
+  });
+
+  it('Cambiar el ruta 1 por el reto 4', () => {
+    routecollection1.changeRouteById(1, route4);
+    expect(routecollection1.getRoute(1)).to.be.eql(route4); 
+  });
 
   it('Añadir la ruta 4 a la colección', () => {
     routecollection.addRoute(route4);
     expect(routecollection.getRoute(4)).to.be.eql(route4);
   } );
+
 
   it('Ordenar las rutas alfabeticamente ASC', () => {
     expect(routecollection.orderRoutesAlfabeticallAsc()).to.be.eql([route1, route2, route3, route4]);
@@ -70,5 +83,11 @@ describe('Routes collection', () => {
   it('Ordenar las rutas por actividad DESC', () => {
     expect(routecollection.orderRoutesByActivityDesc()).to.be.eql([route4, route3, route2, route1]);
   } );
+
+  it('Obtener todas las rutas', () => {
+    expect(routecollection.getAllRoutes()).to.be.eql([route1, route2, route3, route4]);
+  } );
+
+  
 
 });

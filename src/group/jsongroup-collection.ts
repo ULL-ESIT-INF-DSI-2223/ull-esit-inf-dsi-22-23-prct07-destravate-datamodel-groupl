@@ -18,7 +18,7 @@ import { groupCollection } from "./group-collection";
 import { historic } from "../user/classUser";
 
 /**
- * @description Interfaz que representa el esquema de la base de datos
+ *  Interfaz que representa el esquema de la base de datos
  */
 type schemaType = {
   groups: { id_: number, nombre_: string, participantesGrupo_: number[], estadisticaGrupalEntrenamiento_: [EstadisticasEntrenamiento,EstadisticasEntrenamiento,EstadisticasEntrenamiento], clasificacionUsuario_: number[], idRutasFavorita_: number[], todasRutasUsuarios_: number[],   creator_: boolean; idCreator_: number; historico: historic[]}[]

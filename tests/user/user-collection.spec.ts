@@ -23,11 +23,28 @@ describe ('UserCollection', () => {
   const user4 = new User(4, "ismael", ["bicicleta"],  [1, 2, 3], [1], [[1,2], [3,4], [5,6]], [3], [4], [["23-03-23",[1,2,3]]]);
 
   const userCollection1 = new userCollection([user1, user2, user3]);
+  const userCollection2 = new userCollection([user1, user2, user3]);
 
   it('Añadir el usuario 4 a la colección', () => {
     userCollection1.addUser(user4);
     expect(userCollection1.getUser(4)).to.be.eql(user4);
   } );
+
+  it ('Eliminar el usuario 4 de la colección', () => {
+    userCollection2.eraseUser(3);
+    expect(userCollection2.getUser(3)).to.be.eql(undefined);
+  });
+
+  it ('Obtener el mapa de usuarios', () => {
+
+    userCollection2.changeUserByID(1, user1)
+    expect(userCollection2.getAllUsers()).to.be.eql(userCollection2.getAllUsers());
+  }); 
+
+  // it ('cambia el usuario 1 por el usuario 4', () => {
+  //   userCollection2.changeUserByID(1, user1)
+  //   expect(userCollection2.getUser(1)).to.be.eql(user1);
+  // });
 
   it ('Ordenar usuarios alfabéticamente ASC', () => {
     expect(userCollection1.orderUsersAlfabeticallAsc()).to.be.eql([user1, user2, user3, user4]);

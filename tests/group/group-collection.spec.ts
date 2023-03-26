@@ -17,15 +17,20 @@ import {Grupo, EstadisticasEntrenamiento} from '../../src/group/classGroup';
 import {groupCollection} from '../../src/group/group-collection';
 
 describe('Clase groupCollection', () => {
-  const group = new Grupo(1, 'Grupo de prueba', [10], [[23,323],[23,323],[23,323]], [10], [10], [10]);
-  const group2 = new Grupo(2, 'Grupo de prueba 2', [10], [[24,323],[23,323],[23,323]], [10], [10], [10]);
-  const group3 = new Grupo(3, 'Grupo de prueba 3', [10], [[25,323],[23,323],[23,323]], [10], [10], [10]);
+  const group = new Grupo(1, 'Grupo de prueba', [10], [[23,323],[23,323],[23,323]], [10], [10], [10], true, 0);
+  const group2 = new Grupo(2, 'Grupo de prueba 2', [10], [[24,323],[23,323],[23,323]], [10], [10], [10], true, 0);
+  const group3 = new Grupo(3, 'Grupo de prueba 3', [10], [[25,323],[23,323],[23,323]], [10], [10], [10], true, 0);
   const groupcollection = new groupCollection([group, group2, group3]);
+  const groupcollection1 = new groupCollection([group, group2, group3]);
 
-  const group4 = new Grupo(4, 'Grupo de prueba 4', [10], [[26,323],[23,323],[23,323]], [10], [10], [10]);
+  const group4 = new Grupo(4, 'Grupo de prueba 4', [10], [[26,323],[23,323],[23,323]], [10], [10], [10], true, 0);
   
   it('Añadir grupo 4', () => {
     groupcollection.addGroup(group4);
+    groupcollection1.addExistedGroup(group3);
+    groupcollection1.ereaseGroup(3);
+    groupcollection1.changeGroupByID(4, group4);
+
     expect(groupcollection.getGroup(4)).to.be.eql(group4);
   });
 
