@@ -1,5 +1,3 @@
-
-
 # Práctica 7  - DeStravaTe
 
 ## Introducción
@@ -11,7 +9,22 @@ Para el desarrollo de esta práctica he utilizado un sistema operativo Ubuntu po
 
 ## Organización del trabajo y estructura del proyecto
 
-
+En el repositorio de la práctica se puede encontrar la estructura del proyecto. En la raíz del proyecto se encuentra el archivo README.md que contiene la información de la práctica. 
+En la carpeta src se encuentra el código fuente de la práctica.
+  Dentro encontramos los siguientes archivos:
+ * funcionesIquirer.ts -> contiene las funciones que se encargan de la interacción con el usuario
+ * gestor -> contiene la clase gestor que se encarga de la gestión del sistema
+ * group -> contiene la clase group, la clase groupCollection y la gestion de la base de datos de la collection JsonGroupCollection
+ * route -> contiene la clase route, la clase routeCollection y la gestion de la base de datos de la collection JsonRouteCollection
+ * user -> contiene la clase user, la clase userCollection y la gestion de la base de datos de la collection JsonUserCollection
+ * retos -> contiene la clase retos, la clase retosCollection y la gestion de la base de datos de la collection JsonRetosCollection
+En la carpeta db se encuentran las bases de datos de la práctica. 
+  Dentro encontramos los siguientes archivos:
+  * JSONGroupCollection.json -> contiene la base de datos de los grupos
+  * JSONRouteCollection.json -> contiene la base de datos de las rutas
+  * JSONUserCollection.json -> contiene la base de datos de los usuarios
+  * JSONRetosCollection.json -> contiene la base de datos de los retos
+En la carpeta test se encuentra el código de los test de la práctica.
 
 ## Requisitos del sistema de información
 
@@ -1072,6 +1085,18 @@ export class Gestor {
     }
   }
 ```
+## Conclusiones
+
+Para concluír, podemos decir que esta practica ha sido muy util para aprender a utilizar los ```Prompts``` y a utilizar la librería ```Inquirer```, ya que nos ha permitido crear un menú interactivo con el usuario, y que el usuario pueda seleccionar las opciones que desee.
+
+Además, hemos aprendido a utilizar la librería ```Lowdb``` para poder crear una base de datos en formato JSON, y poder guardar los datos de los usuarios, rutas, grupos y retos.
+
+Por último, destacar que hemos reforzado los conocimientos que ya teníamos sobre la programación orientada a objetos, ya que hemos tenido que crear diferentes clases para poder gestionar los datos de los usuarios, rutas, grupos y retos. Además de poder poner en práctica todos los conocimientos que hemos adquirido en la asignatura sobre TypeScript.
+
+## Referencias
+
+* [Inquirer](https://www.npmjs.com/package/inquirer)
+* [Lowdb](https://www.npmjs.com/package/lowdb)
 
 
 

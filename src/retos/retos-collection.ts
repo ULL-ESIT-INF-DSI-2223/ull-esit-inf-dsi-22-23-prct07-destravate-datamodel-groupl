@@ -60,6 +60,14 @@ export class retosCollection {
   }
 
   /**
+   * 
+   * @param reto Reto a añadir si ya existe
+   */
+  addExistedRetos(reto: Retos) {
+    this.retosMap.set(reto.getId(), reto);
+  }
+
+  /**
    *  Método que elimina un reto de la colección
    * @param {number} id - Id del reto a eliminar
    * @returns {void}

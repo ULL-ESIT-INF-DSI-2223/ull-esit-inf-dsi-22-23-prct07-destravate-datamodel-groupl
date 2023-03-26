@@ -85,6 +85,10 @@ export function MenuPrincipal() {
   });
 }
 
+/**
+ * Función que se utiliza para iniciar sesión en el sistema
+ * @param jsonuser
+ */
 export function InquirerInicioSistema() {
   const prompt = inquirer.createPromptModule();
   prompt([
@@ -117,7 +121,9 @@ export function InquirerInicioSistema() {
 }
 
 
-
+/**
+ * Función que inicia el sistema
+ */
 export function mainPrompt() {
   const prompt = inquirer.createPromptModule();
   prompt([

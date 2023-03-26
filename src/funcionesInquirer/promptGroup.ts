@@ -29,6 +29,14 @@ import { MenuPrincipal } from './mainPrompt';
 const prompt = inquirer.createPromptModule();
 
 
+/**
+ * Funcion que permite ordenar los grupos de la base de datos
+ * Alfabéticamente por nombre del grupo, ascendente y descendente.
+ * Por cantidad de KM que se deben realizar, ascendente y descendente.
+ * Por la cantidad de usuarios que lo están realizando, ascendente y descendente.
+ * @param groupCollection Colección de grupos
+ * @returns
+ */
 export function InquirerGroups(groupCollection: jsonGroupCollection) {
 
   prompt([
@@ -103,3 +111,37 @@ export function InquirerGroups(groupCollection: jsonGroupCollection) {
     MenuPrincipal();
   });
 }
+
+/**
+ * Función que permite añadir un grupo a la base de datos
+ * @param groupCollection Colección de grupos
+ * @returns
+ */
+  export function AñadirParticipanteGrupo(groupCollection: jsonGroupCollection){
+    const prompt = inquirer.createPromptModule();
+    prompt([
+      {
+        type: 'input',
+        name: 'nombre',
+        message: '¿Cuál es el ID del grupo al que quieres añadir un participante?',
+      },
+      {
+        type: 'input',
+        name: 'participante',
+        message: '¿Cuál es el ID del participante?',
+      }
+    ]).then((answers) => {
+        if (this.groupCollection.getGroup(Number(answers.nombre)) !== undefined) {
+          const grupo = groupCollection.getGroup(Number(answers.nombre)) as Grupo;
+          const participantes = grupo?.ParticipantesGrupo;
+          participantes?.push(Number(answers.participante));
+          grupo?.setParticipantesGrupo(participantes);
+          this.groupCollection.changeGroupById(Number(answers.nombre), grupo);
+        }        
+      console.log('Participante añadido correctamente');
+      MenuPrincipal();
+    }
+    );
+  }
+
+

@@ -84,6 +84,16 @@ export class jsonRetosCollection extends retosCollection {
   }
 
   /**
+   *  Replace a reto from the collection 
+   * @param reto  
+   */
+  addExistedRetos(reto: Retos): void {
+    super.addExistedRetos(reto);
+    this.storeTasks();
+
+  }
+
+  /**
    * Deletes a reto from the collection
    * @param id
    * @returns Retos
