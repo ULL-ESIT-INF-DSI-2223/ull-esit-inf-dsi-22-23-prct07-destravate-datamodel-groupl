@@ -2,25 +2,213 @@
   "routes": [
     {
       "idRuta_": 1,
-      "nombreRuta_": "Ruta de la costa",
+      "nombreRuta_": "ruta 1",
       "geoInicio_": [
-        23,
-        45
+        12345,
+        945564
       ],
       "geoFin_": [
-        60,
-        7
+        3453,
+        3454
       ],
       "longitudRutaKm_": 20,
-      "desnivelMedio_": 3,
+      "desnivelMedio_": 2,
       "idUsuariosRuta_": [
         1,
         2,
+        7
+      ],
+      "tipoActividad_": "bicicleta",
+      "calificacionMediaRuta_": 7
+    },
+    {
+      "idRuta_": 2,
+      "nombreRuta_": "ruta 2",
+      "geoInicio_": [
+        1346,
+        24234
+      ],
+      "geoFin_": [
+        654563,
+        6544
+      ],
+      "longitudRutaKm_": 7,
+      "desnivelMedio_": 1,
+      "idUsuariosRuta_": [
+        1,
+        2,
+        3
+      ],
+      "tipoActividad_": "correr",
+      "calificacionMediaRuta_": 9
+    },
+    {
+      "idRuta_": 3,
+      "nombreRuta_": "ruta 3",
+      "geoInicio_": [
+        12311,
+        22355
+      ],
+      "geoFin_": [
+        57473,
+        754
+      ],
+      "longitudRutaKm_": 1,
+      "desnivelMedio_": 0,
+      "idUsuariosRuta_": [
+        10,
+        2,
+        20
+      ],
+      "tipoActividad_": "bicicleta",
+      "calificacionMediaRuta_": 10
+    },
+    {
+      "idRuta_": 4,
+      "nombreRuta_": "ruta 4",
+      "geoInicio_": [
+        67474,
+        264
+      ],
+      "geoFin_": [
+        34564,
+        654674
+      ],
+      "longitudRutaKm_": 6,
+      "desnivelMedio_": 2,
+      "idUsuariosRuta_": [
+        1,
+        20
+      ],
+      "tipoActividad_": "bicicleta",
+      "calificacionMediaRuta_": 5
+    },
+    {
+      "idRuta_": 5,
+      "nombreRuta_": "ruta 5",
+      "geoInicio_": [
+        153478,
+        452
+      ],
+      "geoFin_": [
+        745663,
+        645564
+      ],
+      "longitudRutaKm_": 5,
+      "desnivelMedio_": 5,
+      "idUsuariosRuta_": [
+        1,
         3,
+        2
+      ],
+      "tipoActividad_": "correr",
+      "calificacionMediaRuta_": 6
+    },
+    {
+      "idRuta_": 6,
+      "nombreRuta_": "ruta 6",
+      "geoInicio_": [
+        1335,
+        345672
+      ],
+      "geoFin_": [
+        4563,
+        4564
+      ],
+      "longitudRutaKm_": 10,
+      "desnivelMedio_": 2,
+      "idUsuariosRuta_": [
+        6,
+        8
+      ],
+      "tipoActividad_": "bicicleta",
+      "calificacionMediaRuta_": 4
+    },
+    {
+      "idRuta_": 7,
+      "nombreRuta_": "ruta 7",
+      "geoInicio_": [
+        56235461,
+        4532
+      ],
+      "geoFin_": [
+        6453,
+        4564
+      ],
+      "longitudRutaKm_": 3,
+      "desnivelMedio_": 5,
+      "idUsuariosRuta_": [
+        3,
+        2,
+        5
+      ],
+      "tipoActividad_": "correr",
+      "calificacionMediaRuta_": 8
+    },
+    {
+      "idRuta_": 8,
+      "nombreRuta_": "ruta 8",
+      "geoInicio_": [
+        562351,
+        345362
+      ],
+      "geoFin_": [
+        56753,
+        5464
+      ],
+      "longitudRutaKm_": 3,
+      "desnivelMedio_": 0,
+      "idUsuariosRuta_": [
+        1,
+        2,
+        4,
         6
       ],
       "tipoActividad_": "bicicleta",
       "calificacionMediaRuta_": 10
+    },
+    {
+      "idRuta_": 9,
+      "nombreRuta_": "ruta 9",
+      "geoInicio_": [
+        67651,
+        236535
+      ],
+      "geoFin_": [
+        64563,
+        5644
+      ],
+      "longitudRutaKm_": 1,
+      "desnivelMedio_": 5,
+      "idUsuariosRuta_": [
+        1,
+        2,
+        9
+      ],
+      "tipoActividad_": "bicicleta",
+      "calificacionMediaRuta_": 8
+    },
+    {
+      "idRuta_": 10,
+      "nombreRuta_": "ruta 10",
+      "geoInicio_": [
+        13773,
+        5642
+      ],
+      "geoFin_": [
+        5643,
+        7454
+      ],
+      "longitudRutaKm_": 4,
+      "desnivelMedio_": 4,
+      "idUsuariosRuta_": [
+        1,
+        2,
+        17,
+        18
+      ],
+      "tipoActividad_": "correr",
+      "calificacionMediaRuta_": 5
     }
   ]
 }

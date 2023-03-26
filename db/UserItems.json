@@ -2,176 +2,1087 @@
   "users": [
     {
       "id_": 1,
-      "userName_": "Ismael",
+      "userName_": "usuario1",
       "activities_": [
-        "bicicleta"
-      ],
-      "friends_": [],
-      "groups_": [],
-      "stats_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "favouriteRoutes_": [],
-      "challenges_": [],
-      "historic_": []
-    },
-    {
-      "id_": 2,
-      "userName_": "Alberto",
-      "activities_": [
-        "bicicleta"
-      ],
-      "friends_": [],
-      "groups_": [],
-      "stats_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "favouriteRoutes_": [],
-      "challenges_": [],
-      "historic_": []
-    },
-    {
-      "id_": 3,
-      "userName_": "Antonio",
-      "activities_": [
-        "bicicleta"
-      ],
-      "friends_": [],
-      "groups_": [],
-      "stats_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "favouriteRoutes_": [],
-      "challenges_": [],
-      "historic_": []
-    },
-    {
-      "id_": 4,
-      "userName_": "Ismael",
-      "activities_": [
-        "bicicleta"
-      ],
-      "friends_": [],
-      "groups_": [],
-      "stats_": [
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          1,
-          2
-        ]
-      ],
-      "favouriteRoutes_": [],
-      "challenges_": [],
-      "historic_": []
-    },
-    {
-      "id_": 5,
-      "userName_": "Pancho",
-      "activities_": [
+        "bicicleta",
         "correr"
       ],
       "friends_": [
-        -1,
-        1,
         2,
-        6
+        3,
+        5
       ],
-      "groups_": [],
+      "groups_": [
+        1,
+        2
+      ],
       "stats_": [
         [
-          "23",
-          "24"
+          10,
+          100
         ],
         [
-          "34",
-          "45"
+          100,
+          1000
         ],
         [
-          "100",
-          "200"
+          1000,
+          10000
         ]
       ],
       "favouriteRoutes_": [
-        2,
-        1
+        1,
+        2
       ],
       "challenges_": [
+        1,
         2
       ],
       "historic_": [
         [
-          "26/03/23",
+          "2020-10-10",
           [
-            1
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 2,
+      "userName_": "usuario2",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [
+        2
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 3,
+      "userName_": "usuario3",
+      "activities_": [
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        7
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 4,
+      "userName_": "usuario4",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        10
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 5,
+      "userName_": "usuario5",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        9
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
           ]
         ]
       ]
     },
     {
       "id_": 6,
-      "userName_": "Manuel",
+      "userName_": "usuario6",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        6
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 7,
+      "userName_": "usuario7",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        9
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 8,
+      "userName_": "usuario8",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 9,
+      "userName_": "usuario9",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        8
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 10,
+      "userName_": "usuario10",
       "activities_": [
         "bicicleta"
       ],
-      "friends_": [],
-      "groups_": [],
+      "friends_": [
+        2,
+        3,
+        5
+      ],
+      "groups_": [
+        1,
+        2
+      ],
       "stats_": [
         [
-          1,
-          2
+          10,
+          100
         ],
         [
-          1,
-          2
+          100,
+          1000
         ],
         [
-          1,
-          2
+          1000,
+          10000
         ]
       ],
-      "favouriteRoutes_": [],
-      "challenges_": [],
-      "historic_": []
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 11,
+      "userName_": "usuario11",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 12,
+      "userName_": "usuario12",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 13,
+      "userName_": "usuario13",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 14,
+      "userName_": "usuario14",
+      "activities_": [
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        7
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 15,
+      "userName_": "usuario15",
+      "activities_": [
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        8
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 16,
+      "userName_": "usuario16",
+      "activities_": [
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3,
+        1
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 17,
+      "userName_": "usuario17",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [
+        2,
+        3,
+        7
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 18,
+      "userName_": "usuario18",
+      "activities_": [
+        "bicicleta"
+      ],
+      "friends_": [
+        2,
+        3,
+        8
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 19,
+      "userName_": "usuario19",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
+    },
+    {
+      "id_": 20,
+      "userName_": "usuario20",
+      "activities_": [
+        "bicicleta",
+        "correr"
+      ],
+      "friends_": [
+        2,
+        3
+      ],
+      "groups_": [
+        1,
+        2
+      ],
+      "stats_": [
+        [
+          10,
+          100
+        ],
+        [
+          100,
+          1000
+        ],
+        [
+          1000,
+          10000
+        ]
+      ],
+      "favouriteRoutes_": [
+        1,
+        2
+      ],
+      "challenges_": [
+        1,
+        2
+      ],
+      "historic_": [
+        [
+          "2020-10-10",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "2020-10-11",
+          [
+            3,
+            4
+          ]
+        ]
+      ]
     }
   ]
 }
