@@ -40,6 +40,7 @@ let idUsuarioActual = -1;
 
 /**
  * Función que se utiliza para mostrar el menú principal
+ * 
  */
 export function MenuPrincipal() {
   const prompt = inquirer.createPromptModule();
