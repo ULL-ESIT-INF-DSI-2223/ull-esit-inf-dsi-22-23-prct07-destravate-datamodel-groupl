@@ -1,5 +1,10 @@
 # Práctica 7  - DeStravaTe
 
+## Autores
+
+* Alberto Zarza Martín (alu0101412993@ull.edu.es)
+* Ismael Martín Herrera (alu0101397375@ull.edu.es) 
+
 ## Introducción
 
 En esta práctica se he desarrollado la primera práctica en grupo de la asignatura de DSI. El objetivo de la práctica es crear un sistema de información que permita almacenar registros de actividades deportivas. Para ello utilizaremos typescript, así como los modulos Inquirer para la interacción con el usuario y LowDB para la gestión de la base de datos.
@@ -624,6 +629,24 @@ export class routeCollection {
     return Array.from(this.routeMap.values());
   }
 
+    /**
+   * Deletes a route from the collection
+   * @param id 
+   */
+  ereaseRoute(id: number) {
+    this.routeMap.delete(id);
+  }
+
+  /**
+   * Changes a route from the collection
+   * @param id Id de la ruta a cambiar
+   * @param route Ruta nueva
+   */
+  changeRouteById(id: number, route: Route) {
+    this.ereaseRoute(id);
+    this.routeMap.set(id, route);
+  }
+
   /**
    * @returns the next id to be used
    * 
@@ -734,6 +757,8 @@ La lógica de estos métodos es la siguiente:
   * getRoute -> obtiene un objeto de la base de datos
   * getAllRoutes -> obtiene todos los objetos de la base de datos
   * orderRoutesAlfabeticallAsc -> ordena las rutas alfabéticamente de forma ascendente
+  * eraseRoute -> permite borrar una ruta de la colección
+  * changeRouteById -> permite reemplazar una ruta por si misma modificada. 
   * orderRoutesAlfabeticallDesc -> ordena las rutas alfabéticamente de forma descendente
   * amountUserAsc -> ordena las rutas por número de usuarios de forma ascendente
   * amountUserDesc -> ordena las rutas por número de usuarios de forma descendente
@@ -765,6 +790,18 @@ export class retosCollection {
    */
   addRetos(reto: Retos) {
     this.retosMap.set(this.nextId++, reto);
+  }
+
+    /**
+   * 
+   * @param reto Reto a añadir si ya existe
+   */
+  addExistedRetos(reto: Retos) {
+    this.retosMap.set(reto.getId(), reto);
+  }
+
+  eraseRetos(id: number) {
+    this.retosMap.delete(id);
   }
 
   /**
@@ -853,6 +890,8 @@ La lógica de estos métodos es la siguiente:
 
   * addRetos -> añade un objeto a la base de datos
   * getRetos -> obtiene un objeto de la base de datos
+  * addExistedRetos -> añade un objeto a la base de datos si ya existe, pero nos permite modificarlo antes pero manteniendo el mismo id
+  * eraseRetos -> elimina un objeto de la base de datos
   * orderAlfabeticallRetosAsc -> ordena los retos alfabéticamente de forma ascendente
   * orderAlfabeticallRetosDesc -> ordena los retos alfabéticamente de forma descendente
   * orderDistanceAsc -> ordena los retos por distancia de forma ascendente
@@ -922,9 +961,9 @@ Cada fichero Json esta alojado en la carpeta db, en la raíz del proyecto, y se 
 
 ## Modulo Inquirer para la gestión de la interfaz de usuario
 
-Llegados a este punto vamos a utilizar el modulo Inquirer para la gestión de la interfaz de usuario, este modulo nos permite crear un menú de opciones para el usuario, en el cual el usuario puede seleccionar una opción y realizar una acción. Para ello vamos a crear una clase que se encargue de gestionar el menú de opciones.
+Llegados a este punto vamos a utilizar el módulo Inquirer para la gestión de la interfaz de usuario, este módulo nos permite crear un menú de opciones para el usuario, en el cual el usuario puede seleccionar una opción y realizar una acción. Para ello vamos a crear una clase que se encargue de gestionar el menú de opciones.
 
-Para esta interfaz grafica vamos a crear diferentes ```Prompts``` para cada una de las opciones del menú, por ejemplo para la gestión avanzada de usuarios hemos creado el siguiente ```Prompt```:
+Para esta interfaz gráfica vamos a crear diferentes ```Prompts``` para cada una de las opciones del menú, por ejemplo para la gestión avanzada de usuarios hemos creado el siguiente ```Prompt```:
 
 ```typescript
 
@@ -1107,7 +1146,7 @@ export class Gestor {
 ```
 ## Conclusiones
 
-Para concluír, podemos decir que esta practica ha sido muy util para aprender a utilizar los ```Prompts``` y a utilizar la librería ```Inquirer```, ya que nos ha permitido crear un menú interactivo con el usuario, y que el usuario pueda seleccionar las opciones que desee.
+Para concluir, podemos decir que esta práctica ha sido muy útil para aprender a utilizar los ```Prompts``` y a utilizar la librería ```Inquirer```, ya que nos ha permitido crear un menú interactivo con el usuario, y que el usuario pueda seleccionar las opciones que desee.
 
 Además, hemos aprendido a utilizar la librería ```Lowdb``` para poder crear una base de datos en formato JSON, y poder guardar los datos de los usuarios, rutas, grupos y retos.
 
