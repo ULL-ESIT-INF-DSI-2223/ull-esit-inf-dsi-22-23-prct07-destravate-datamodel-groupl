@@ -1,9 +1,18 @@
 # Práctica 7  - DeStravaTe
 
+
 ## Autores
 
 * Alberto Zarza Martín (alu0101412993@ull.edu.es)
 * Ismael Martín Herrera (alu0101397375@ull.edu.es) 
+
+
+## Coveralls
+
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct07-destravate-datamodel-groupl/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct07-destravate-datamodel-groupl?branch=main)
+
+## SonarCloud
+
 
 ## Introducción
 
